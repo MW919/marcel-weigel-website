@@ -90,8 +90,8 @@ body { font-family: 'Outfit', 'Century Gothic', 'Avenir', sans-serif; background
   50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
 }
 
-/* Footer signature glow pulse */
+/* Footer signature glow pulse — purple */
 @keyframes sigPulseFooter {
-  0%, 100% { opacity: 0.3; filter: blur(10px) brightness(1.6); }
-  50% { opacity: 0.5; filter: blur(14px) brightness(2); }
+  0%, 100% { opacity: 0.4; filter: blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3); }
+  50% { opacity: 0.7; filter: blur(16px) brightness(1.8) sepia(1) hue-rotate(250deg) saturate(3); }
 }

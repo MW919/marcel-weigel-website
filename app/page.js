@@ -118,28 +118,44 @@ export default async function HomePage() {
               style={{ scrollSnapAlign: 'start' }}
             >
               <AnimatedSection delay={i * 0.15}>
-                <div className="h-full rounded-xl border border-accent/15 bg-brand-card p-6 flex flex-col gap-4 transition-all duration-300 group-hover:border-accent/40 group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgba(117,70,140,0.15)]">
-                  <div className="flex items-center gap-2 text-[11px] tracking-[1.5px] uppercase text-brand-muted">
-                    <span>{post.date}</span>
-                    {post.membersOnly && (
-                      <>
-                        <span className="text-accent/40">•</span>
+                <div className="h-full rounded-xl border border-accent/15 bg-brand-card overflow-hidden flex flex-col transition-all duration-300 group-hover:border-accent/40 group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgba(117,70,140,0.15)]">
+                  {/* Feature image */}
+                  {post.featureImage && (
+                    <div className="relative w-full h-[180px] overflow-hidden">
+                      <img
+                        src={post.featureImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-card/80 to-transparent" />
+                      {post.membersOnly && (
+                        <span className="absolute top-3 right-3 flex items-center gap-1 text-[10px] tracking-[1.5px] uppercase text-brand-muted bg-brand-bg/80 backdrop-blur-sm px-2 py-1 rounded">
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                          Members
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <div className="p-6 flex flex-col gap-4 flex-grow">
+                    {/* Members badge if no image */}
+                    {!post.featureImage && post.membersOnly && (
+                      <div className="flex items-center gap-2 text-[11px] tracking-[1.5px] uppercase text-brand-muted">
                         <span className="flex items-center gap-1">
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                           Members
                         </span>
-                      </>
+                      </div>
                     )}
+                    <h3 className="font-heading text-lg font-bold leading-snug" style={{ color: '#f4f6fc' }}>
+                      {post.title}
+                    </h3>
+                    <p className="font-body text-sm leading-relaxed text-brand-muted flex-grow">
+                      {post.excerpt}
+                    </p>
+                    <span className="font-heading text-xs font-semibold tracking-[2px] uppercase text-accent-light group-hover:text-accent-light/80 transition-colors mt-auto">
+                      Read on Architecture Experience →
+                    </span>
                   </div>
-                  <h3 className="font-heading text-lg font-bold leading-snug" style={{ color: '#f4f6fc' }}>
-                    {post.title}
-                  </h3>
-                  <p className="font-body text-sm leading-relaxed text-brand-muted flex-grow">
-                    {post.excerpt}
-                  </p>
-                  <span className="font-heading text-xs font-semibold tracking-[2px] uppercase text-accent-light group-hover:text-accent-light/80 transition-colors mt-auto">
-                    Read on Architecture Experience →
-                  </span>
                 </div>
               </AnimatedSection>
             </a>
