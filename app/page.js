@@ -3,6 +3,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import PostCard from '@/components/PostCard';
 import HexagonQuote from '@/components/HexagonQuote';
+import GlowLabel from '@/components/GlowLabel';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
 import siteConfig from '@/lib/siteConfig';
 import { getLatestPosts } from '@/lib/ghost';
@@ -90,13 +91,7 @@ export default async function HomePage() {
       <section className="pt-8 pb-20 bg-brand-bg">
         <div className="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12 text-center mb-12">
           <AnimatedSection>
-            <span className="font-heading text-sm font-bold tracking-[4px] uppercase inline-block relative pb-2 mb-6" style={{ color: '#f4f6fc' }}>
-              ARCHITECTURE EXPERIENCE
-              <svg className="absolute bottom-0 left-[-3px] right-[-3px]" style={{ width: 'calc(100% + 6px)', height: '8px', overflow: 'visible' }} viewBox="0 0 200 10" preserveAspectRatio="none">
-                <path d="M1,5.5 C8,4 15,6.5 30,4.8 C50,3 65,6 90,4.5 C110,3.2 130,6.2 155,4 C170,3 185,5.8 199,5" fill="none" stroke="#75468c" strokeWidth="3" strokeLinecap="round" style={{ vectorEffect: 'non-scaling-stroke' }} />
-                <path d="M2,6.2 C12,4.5 25,7 45,5 C65,3.5 85,6.5 105,4.8 C125,3.5 148,6.5 170,4.5 C185,3.5 194,5.5 199,5.2" fill="none" stroke="#75468c" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" style={{ vectorEffect: 'non-scaling-stroke' }} />
-              </svg>
-            </span>
+            <GlowLabel>ARCHITECTURE EXPERIENCE</GlowLabel>
             <h2 className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-extrabold mb-3" style={{ color: '#f4f6fc' }}>
               FROM THE BLOG
             </h2>
@@ -202,13 +197,7 @@ export default async function HomePage() {
           ════════════════════════════════════════════════════════ */}
       <section className="py-24 px-4 md:px-8 bg-brand-section text-center">
         <AnimatedSection>
-          <span className="font-heading text-sm font-bold tracking-[4px] uppercase inline-block relative pb-2 mb-6" style={{ color: '#f4f6fc' }}>
-            CONTACT
-            <svg className="absolute bottom-0 left-[-3px] right-[-3px]" style={{ width: 'calc(100% + 6px)', height: '8px', overflow: 'visible' }} viewBox="0 0 200 10" preserveAspectRatio="none">
-              <path d="M1,5.2 C9,3.8 20,6 38,4.2 C55,2.8 72,6.5 95,4.5 C115,3 135,6 158,4.2 C175,3 190,5.5 199,5" fill="none" stroke="#75468c" strokeWidth="3" strokeLinecap="round" style={{ vectorEffect: 'non-scaling-stroke' }} />
-              <path d="M2,5.8 C16,4 30,7 52,4.5 C72,3 90,6.5 115,4.8 C135,3.2 158,6.2 180,4.5 C192,3.5 197,5.5 199,5.2" fill="none" stroke="#75468c" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" style={{ vectorEffect: 'non-scaling-stroke' }} />
-            </svg>
-          </span>
+          <GlowLabel>CONTACT MARCEL</GlowLabel>
           <h2 className="font-heading text-[clamp(2rem,5vw,3rem)] font-extrabold mb-5" style={{ color: '#f4f6fc' }}>
             {siteConfig.contact.headline}
           </h2>
