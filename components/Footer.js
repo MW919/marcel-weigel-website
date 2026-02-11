@@ -48,7 +48,7 @@ export default function Footer() {
               src="/images/signature.png"
               alt=""
               className="absolute inset-[-6px] h-[calc(100%+12px)] w-auto object-contain pointer-events-none z-0 transition-opacity duration-[1.2s] ease-in"
-              style={{ filter: 'blur(10px) brightness(1.8)', opacity: 0, animation: 'sigPulseFooter 3s ease-in-out infinite' }}
+              style={{ filter: 'blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3)', opacity: 0, animation: 'sigPulseFooter 3s ease-in-out infinite' }}
             />
             <img
               ref={sigMainRef}

@@ -33,15 +33,15 @@ export default function Header() {
       <header className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`}>
         <Link href="/" className="flex items-center no-underline relative">
           <div className={`relative transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`} style={{ aspectRatio: '1964 / 576' }}>
-            {/* Glow layer — behind the signature */}
+            {/* Glow layer — behind the signature, purple tinted */}
             <img
               src="/images/signature.png"
               alt=""
               aria-hidden="true"
               className="absolute inset-0 h-full w-auto object-contain pointer-events-none"
               style={{
-                filter: 'blur(10px) brightness(1.8)',
-                opacity: drawPhase >= 2 ? 0.6 : 0,
+                filter: 'blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3)',
+                opacity: drawPhase >= 2 ? 0.7 : 0,
                 transition: 'opacity 1.2s ease-in',
                 animation: drawPhase >= 2 ? 'sigGlowPulse 3s ease-in-out infinite' : 'none',
               }}
@@ -81,8 +81,8 @@ export default function Header() {
       {/* Glow pulse keyframes */}
       <style jsx global>{`
         @keyframes sigGlowPulse {
-          0%, 100% { opacity: 0.4; filter: blur(10px) brightness(1.6); }
-          50% { opacity: 0.7; filter: blur(14px) brightness(2); }
+          0%, 100% { opacity: 0.5; filter: blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3); }
+          50% { opacity: 0.8; filter: blur(16px) brightness(1.8) sepia(1) hue-rotate(250deg) saturate(3); }
         }
       `}</style>
 

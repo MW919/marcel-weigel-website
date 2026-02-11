@@ -1,32 +1,39 @@
+// Followers — network/community icon
 export function ContentIcon({ className = '' }) {
   return (
     <svg className={className} width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="6" y="4" width="36" height="40" rx="3" />
-      <line x1="14" y1="14" x2="34" y2="14" />
-      <line x1="14" y1="20" x2="34" y2="20" />
-      <line x1="14" y1="26" x2="28" y2="26" />
-      <line x1="14" y1="32" x2="22" y2="32" />
+      <circle cx="24" cy="16" r="6" />
+      <circle cx="10" cy="22" r="5" />
+      <circle cx="38" cy="22" r="5" />
+      <path d="M16 36v-2a8 8 0 0116 0v2" />
+      <path d="M5 40v-2a6 6 0 016-6" />
+      <path d="M43 40v-2a6 6 0 00-6-6" />
     </svg>
   );
 }
 
+// Years of Experience — road/journey icon
 export function AwardsIcon({ className = '' }) {
   return (
     <svg className={className} width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="24" cy="18" r="12" />
-      <path d="M16 28l-4 16 12-6 12 6-4-16" />
-      <path d="M24 10l2 4 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z" fill="currentColor" stroke="none" />
+      <path d="M8 40 C12 32 16 28 24 24 C32 20 36 14 40 8" />
+      <circle cx="40" cy="8" r="4" />
+      <path d="M8 40l-3 3" />
+      <path d="M20 24l-2-4" />
+      <path d="M28 20l2-4" />
+      <path d="M14 34l-3-2" />
     </svg>
   );
 }
 
+// Articles Published — pen/writing icon
 export function SpeakerIcon({ className = '' }) {
   return (
     <svg className={className} width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="24" cy="14" r="8" />
-      <path d="M12 44v-6a12 12 0 0124 0v6" />
-      <path d="M34 10c2 2 3 5 3 8s-1 6-3 8" />
-      <path d="M38 6c3 3 5 8 5 12s-2 9-5 12" />
+      <path d="M28 6l14 14-22 22H6V28z" />
+      <path d="M28 6l6-2 10 10-2 6" />
+      <line x1="22" y1="18" x2="30" y2="26" />
+      <path d="M6 42l8-4" />
     </svg>
   );
 }
