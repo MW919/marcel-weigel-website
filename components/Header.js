@@ -7,6 +7,7 @@ import { MenuIcon, CloseIcon } from './Icons';
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [drawPhase, setDrawPhase] = useState(0); // 0=hidden, 1=drawing, 2=glow
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -19,16 +20,49 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  useEffect(() => {
+    // Phase 1: start drawing after short delay
+    const t1 = setTimeout(() => setDrawPhase(1), 500);
+    // Phase 2: activate glow after drawing completes (3.5s draw + 0.5s delay)
+    const t2 = setTimeout(() => setDrawPhase(2), 4200);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`}>
-        <Link href="/" className="flex items-center gap-3 no-underline">
-          <div className="w-10 h-10 rounded-[10px] bg-gradient-to-br from-accent to-accent-dark flex items-center justify-center font-heading font-extrabold text-lg text-white shrink-0">
-            MW
+        <Link href="/" className="flex items-center no-underline relative">
+          <div className={`relative transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`} style={{ aspectRatio: '1964 / 576' }}>
+            {/* Glow layer — behind the signature */}
+            <img
+              src="/images/signature.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-auto object-contain pointer-events-none"
+              style={{
+                filter: 'blur(10px) brightness(1.8)',
+                opacity: drawPhase >= 2 ? 0.6 : 0,
+                transition: 'opacity 1.2s ease-in',
+                animation: drawPhase >= 2 ? 'sigGlowPulse 3s ease-in-out infinite' : 'none',
+              }}
+            />
+            {/* Main signature */}
+            <img
+              src="/images/signature.png"
+              alt="Marcel Weigel"
+              className="h-full w-auto object-contain relative"
+              style={{ opacity: drawPhase >= 1 ? 1 : 0, transition: 'opacity 0.3s' }}
+            />
+            {/* Drawing reveal mask */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: 'var(--bg)',
+                clipPath: drawPhase >= 1 ? 'inset(0 0 0 100%)' : 'inset(0 0 0 0)',
+                transition: 'clip-path 3.5s cubic-bezier(0.22, 0.61, 0.36, 1)',
+              }}
+            />
           </div>
-          <span className="font-heading font-bold text-[15px] tracking-[1.5px] uppercase text-brand-text">
-            {siteConfig.name}
-          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -43,6 +77,14 @@ export default function Header() {
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </header>
+
+      {/* Glow pulse keyframes */}
+      <style jsx global>{`
+        @keyframes sigGlowPulse {
+          0%, 100% { opacity: 0.4; filter: blur(10px) brightness(1.6); }
+          50% { opacity: 0.7; filter: blur(14px) brightness(2); }
+        }
+      `}</style>
 
       <div className={`fixed inset-0 z-[999] bg-brand-bg/[0.98] backdrop-blur-3xl flex flex-col items-center justify-center gap-10 transition-opacity duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         {siteConfig.navLinks.map((link, i) => (
