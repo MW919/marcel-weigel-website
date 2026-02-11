@@ -2,6 +2,7 @@ import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import PostCard from '@/components/PostCard';
+import HexagonQuote from '@/components/HexagonQuote';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
 import siteConfig from '@/lib/siteConfig';
 import { getLatestPosts } from '@/lib/ghost';
@@ -72,26 +73,9 @@ export default async function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          SECTION 2: QUOTE BANNER
+          SECTION 2: QUOTE BANNER with Hexagon Assembly
           ════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-28 px-4 md:px-8 overflow-hidden">
-        {/* Smooth gradient bg that blends from above and into below */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg via-accent-dark/20 to-brand-section" />
-
-        <AnimatedSection className="relative z-[1] max-w-[900px] mx-auto text-center">
-          <p className="font-heading text-[clamp(1.3rem,3.5vw,2rem)] font-light leading-[1.7] italic" style={{ color: '#d8d5e0' }}>
-            &ldquo;{siteConfig.quote.before}{' '}
-            {siteConfig.quote.highlights.map((h, i) => (
-              <span key={i}>
-                <strong className="font-bold not-italic underline decoration-2 underline-offset-4" style={{ color: '#f4f6fc', textDecorationColor: '#75468c' }}>{h.word}</strong>
-                <span style={{ color: '#d8d5e0' }}>{h.after}</span>
-                {i < siteConfig.quote.highlights.length - 1 ? ' ' : ''}
-              </span>
-            ))}
-            &rdquo;
-          </p>
-        </AnimatedSection>
-      </section>
+      <HexagonQuote />
 
       {/* ════════════════════════════════════════════════════════
           TRANSITION: Arrow
