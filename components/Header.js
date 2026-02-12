@@ -6,11 +6,20 @@ import { MenuIcon, CloseIcon } from './Icons';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [drawPhase, setDrawPhase] = useState(0); // 0=hidden, 1=drawing, 2=glow
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    let lastY = 0;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 60);
+      // Hide when scrolling down past 100px, show when scrolling up
+      if (y > 100 && y > lastY + 5) setHidden(true);
+      else if (y < lastY - 5) setHidden(false);
+      lastY = y;
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -21,19 +30,17 @@ export default function Header() {
   }, [menuOpen]);
 
   useEffect(() => {
-    // Phase 1: start drawing after short delay
     const t1 = setTimeout(() => setDrawPhase(1), 500);
-    // Phase 2: activate glow after drawing completes (3.5s draw + 0.5s delay)
     const t2 = setTimeout(() => setDrawPhase(2), 4200);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`} style={{ transform: hidden ? 'translateY(-100%)' : 'translateY(0)' }}>
         <Link href="/" className="flex items-center no-underline relative">
           <div className={`relative transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`} style={{ aspectRatio: '1964 / 576' }}>
-            {/* Glow layer — behind the signature, purple tinted */}
+            {/* Purple glow layer */}
             <img
               src="/images/signature.png"
               alt=""
@@ -78,7 +85,6 @@ export default function Header() {
         </button>
       </header>
 
-      {/* Glow pulse keyframes */}
       <style jsx global>{`
         @keyframes sigGlowPulse {
           0%, 100% { opacity: 0.5; filter: blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3); }
