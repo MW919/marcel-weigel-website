@@ -23,11 +23,25 @@ export default async function HomePage() {
           <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[350px] h-[350px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.2)_0%,transparent_70%)] blur-[50px] pointer-events-none" style={{ animation: 'heroGlow 6s ease-in-out infinite' }} />
           <AnimatedSection delay={0.1}>
             <div className="relative w-full max-w-[420px] mx-auto px-4">
-              <img
-                src="/images/hero-photo.png"
-                alt="Marcel Weigel"
-                className="w-full object-contain object-bottom block"
-              />
+              <picture>
+                <source
+                  srcSet="/images/hero-photo-mobile.webp"
+                  media="(max-width: 768px)"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/images/hero-photo.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="/images/hero-photo.png"
+                  alt="Marcel Weigel"
+                  className="w-full object-contain object-bottom block"
+                  width={885}
+                  height={1806}
+                  loading="eager"
+                />
+              </picture>
               {/* Vignette overlay — soft, barely visible */}
               <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center 40%, transparent 50%, var(--bg) 85%)' }} />
             </div>
