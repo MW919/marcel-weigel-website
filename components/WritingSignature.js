@@ -74,7 +74,7 @@ export default function WritingSignature({
       {/* Glow layer */}
       <img
         ref={glowRef}
-        src="/images/signature.png"
+        src="/images/signature.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-[-4px] h-[calc(100%+8px)] w-auto object-contain pointer-events-none"
@@ -88,7 +88,7 @@ export default function WritingSignature({
       />
       {/* Main signature */}
       <img
-        src="/images/signature.png"
+        src="/images/signature.webp"
         alt="Marcel Weigel"
         className="h-full w-auto object-contain relative"
       />

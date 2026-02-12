@@ -1,78 +1,25 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/lib/siteConfig';
+import WritingSignature from './WritingSignature';
 
 export default function Footer() {
-  const [drawPhase, setDrawPhase] = useState(0); // 0=hidden, 1=drawing, 2=glow
-  const sigRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && drawPhase === 0) {
-            // Start drawing
-            setDrawPhase(1);
-            // Activate glow after drawing completes
-            setTimeout(() => setDrawPhase(2), 4200);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    if (sigRef.current) observer.observe(sigRef.current);
-    return () => observer.disconnect();
-  }, [drawPhase]);
-
   return (
     <>
-      {/* Signature — same clip-path reveal as header, triggered on scroll */}
-      <div ref={sigRef} className="relative py-16 bg-brand-bg overflow-hidden">
+      {/* Signature — writing animation triggered on scroll */}
+      <div className="relative py-16 bg-brand-bg overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[30px] pointer-events-none" />
         <div className="flex justify-center">
-          <div className="relative h-[50px] md:h-[60px]" style={{ aspectRatio: '1964 / 576' }}>
-            {/* Purple glow layer */}
-            <img
-              src="/images/signature.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-auto object-contain pointer-events-none"
-              style={{
-                filter: 'blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3)',
-                opacity: drawPhase >= 2 ? 0.7 : 0,
-                transition: 'opacity 1.2s ease-in',
-                animation: drawPhase >= 2 ? 'sigGlowPulseFooter 3s ease-in-out infinite' : 'none',
-              }}
-            />
-            {/* Main signature */}
-            <img
-              src="/images/signature.png"
-              alt="Marcel Weigel"
-              className="h-full w-auto object-contain relative"
-              style={{ opacity: drawPhase >= 1 ? 1 : 0, transition: 'opacity 0.3s' }}
-            />
-            {/* Drawing reveal mask — same as header */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'var(--bg)',
-                clipPath: drawPhase >= 1 ? 'inset(0 0 0 100%)' : 'inset(0 0 0 0)',
-                transition: 'clip-path 3.5s cubic-bezier(0.22, 0.61, 0.36, 1)',
-              }}
-            />
-          </div>
+          <WritingSignature
+            className="h-[50px] md:h-[60px]"
+            height={60}
+            duration={3.5}
+            delay={0}
+            trigger="scroll"
+          />
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes sigGlowPulseFooter {
-          0%, 100% { opacity: 0.4; filter: blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3); }
-          50% { opacity: 0.7; filter: blur(16px) brightness(1.8) sepia(1) hue-rotate(250deg) saturate(3); }
-        }
-      `}</style>
 
       {/* Subtle divider */}
       <div className="w-[60px] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mx-auto mb-8" />
