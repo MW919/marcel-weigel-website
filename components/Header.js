@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/lib/siteConfig';
 import WritingSignature from './WritingSignature';
@@ -9,27 +9,32 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const hideYRef = useRef(0);
 
   useEffect(() => {
     let lastY = 0;
-    let hideY = 0; // track where we started hiding
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 60);
+
       // Hide when scrolling down past 100px
       if (y > 100 && y > lastY + 5) {
-        if (!hidden) hideY = y; // remember where we hid
-        setHidden(true);
+        setHidden(prev => {
+          if (!prev) hideYRef.current = y;
+          return true;
+        });
       }
-      // Show only after scrolling up 80px+ from where it was hidden
-      else if (y < lastY - 8 && (hideY - y > 80 || y < 100)) {
-        setHidden(false);
+      // Show: must scroll up 50px+ from hide point, OR be near top
+      else if (y < lastY - 8) {
+        if (y < 80 || hideYRef.current - y > 50) {
+          setHidden(false);
+        }
       }
       lastY = y;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [hidden]);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -39,13 +44,12 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`}
+        className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-14 md:h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-16 md:h-20 bg-transparent border-b border-transparent'}`}
         style={{ transform: hidden ? 'translateY(-100%)' : 'translateY(0)' }}
       >
         <Link href="/" className="flex items-center no-underline relative">
           <WritingSignature
-            className={`transition-all duration-300 ${scrolled ? 'h-7 md:h-10' : 'h-8 md:h-12'}`}
-            height={scrolled ? 40 : 48}
+            className={`transition-all duration-300 ${scrolled ? 'h-6 md:h-10' : 'h-7 md:h-12'}`}
             duration={3.5}
             delay={0.5}
             trigger="mount"

@@ -70,7 +70,7 @@ export default function WritingSignature({
   }, [started, duration]);
 
   return (
-    <div ref={containerRef} className={`relative ${className}`} style={{ height }}>
+    <div ref={containerRef} className={`relative ${className}`}>
       {/* Glow layer */}
       <img
         ref={glowRef}
