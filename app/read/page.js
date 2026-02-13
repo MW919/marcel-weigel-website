@@ -153,12 +153,6 @@ export default async function ReadPage() {
         </div>
       </section>
 
-      <style jsx>{`
-        @keyframes floatShape {
-          0%, 100% { transform: translate(-50%,-50%) rotate(var(--r, 0deg)) scale(1); opacity: 1; }
-          50% { transform: translate(calc(-50% + 8px), calc(-50% - 12px)) rotate(calc(var(--r, 0deg) + 3deg)) scale(1.05); opacity: 0.8; }
-        }
-      `}</style>
     </>
   );
 }
