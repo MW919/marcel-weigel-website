@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 const milestones = [
   {
@@ -44,47 +44,55 @@ const milestones = [
 export default function Timeline() {
   const sectionRef = useRef(null);
   const [progress, setProgress] = useState(0);
-  const [visibleItems, setVisibleItems] = useState(new Set());
+  const [visibleItems, setVisibleItems] = useState([false, false, false, false, false, false]);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionH = rect.height;
-      const viewH = window.innerHeight;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (!sectionRef.current) { ticking = false; return; }
+        const rect = sectionRef.current.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        const sectionH = rect.height;
 
-      // Calculate how far through the section we've scrolled
-      const scrolled = Math.max(0, -rect.top + viewH * 0.3);
-      const p = Math.min(scrolled / (sectionH - viewH * 0.4), 1);
-      setProgress(p);
+        const scrolled = Math.max(0, -rect.top + viewH * 0.3);
+        const denom = sectionH - viewH * 0.4;
+        setProgress(denom > 0 ? Math.min(scrolled / denom, 1) : 0);
 
-      // Check each milestone
-      const items = sectionRef.current.querySelectorAll('[data-milestone]');
-      const newVisible = new Set(visibleItems);
-      items.forEach((el, i) => {
-        const r = el.getBoundingClientRect();
-        if (r.top < viewH * 0.75) newVisible.add(i);
+        const items = sectionRef.current.querySelectorAll('[data-milestone]');
+        setVisibleItems(prev => {
+          let changed = false;
+          const next = [...prev];
+          items.forEach((el, i) => {
+            if (!next[i] && el.getBoundingClientRect().top < viewH * 0.75) {
+              next[i] = true;
+              changed = true;
+            }
+          });
+          return changed ? next : prev;
+        });
+
+        ticking = false;
       });
-      setVisibleItems(newVisible);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [visibleItems]);
+  }, []);
 
   return (
     <div ref={sectionRef} className="relative py-8">
-      {/* Vertical line — draws as you scroll */}
+      {/* Vertical line */}
       <div className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px]">
-        {/* Background track */}
         <div className="absolute inset-0 bg-accent/10 rounded-full" />
-        {/* Active progress */}
         <div
           className="absolute top-0 left-0 right-0 bg-gradient-to-b from-accent via-accent-light to-accent rounded-full transition-all duration-150"
           style={{ height: `${progress * 100}%` }}
         />
-        {/* Glow dot at the tip */}
         <div
           className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent-light transition-all duration-150"
           style={{
@@ -95,9 +103,8 @@ export default function Timeline() {
         />
       </div>
 
-      {/* Milestones */}
       {milestones.map((m, i) => {
-        const isVisible = visibleItems.has(i);
+        const isVisible = visibleItems[i];
         const isEven = i % 2 === 0;
 
         return (
@@ -108,7 +115,6 @@ export default function Timeline() {
               isEven ? 'md:flex-row' : 'md:flex-row-reverse'
             }`}
           >
-            {/* Timeline dot */}
             <div
               className={`absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full border-2 flex items-center justify-center z-10 transition-all duration-500 ${
                 isVisible
@@ -119,7 +125,6 @@ export default function Timeline() {
               <span className="text-sm">{m.icon}</span>
             </div>
 
-            {/* Content card */}
             <div
               className={`ml-16 md:ml-0 md:w-[calc(50%-40px)] transition-all duration-700 ${
                 isEven ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left md:ml-auto'
