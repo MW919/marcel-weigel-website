@@ -12,16 +12,24 @@ export default function Header() {
 
   useEffect(() => {
     let lastY = 0;
+    let hideY = 0; // track where we started hiding
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 60);
-      if (y > 100 && y > lastY + 5) setHidden(true);
-      else if (y < lastY - 5) setHidden(false);
+      // Hide when scrolling down past 100px
+      if (y > 100 && y > lastY + 5) {
+        if (!hidden) hideY = y; // remember where we hid
+        setHidden(true);
+      }
+      // Show only after scrolling up 80px+ from where it was hidden
+      else if (y < lastY - 8 && (hideY - y > 80 || y < 100)) {
+        setHidden(false);
+      }
       lastY = y;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [hidden]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -36,7 +44,7 @@ export default function Header() {
       >
         <Link href="/" className="flex items-center no-underline relative">
           <WritingSignature
-            className={`transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`}
+            className={`transition-all duration-300 ${scrolled ? 'h-7 md:h-10' : 'h-8 md:h-12'}`}
             height={scrolled ? 40 : 48}
             duration={3.5}
             delay={0.5}
