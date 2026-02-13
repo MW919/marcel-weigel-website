@@ -23,12 +23,13 @@ export default function AboutPage() {
               <div className="relative mx-auto md:mx-0 w-[220px] md:w-full">
                 <div className="relative rounded-2xl overflow-hidden border border-accent/15 bg-brand-card">
                   <picture>
-                    <source srcSet="/images/hero-photo.webp" type="image/webp" />
+                    <source srcSet="/images/about-photo-mobile.webp" media="(max-width: 768px)" type="image/webp" />
+                    <source srcSet="/images/about-photo.webp" type="image/webp" />
                     <img
-                      src="/images/hero-photo.png"
+                      src="/images/about-photo.png"
                       alt="Marcel Weigel"
                       className="w-full object-cover"
-                      style={{ aspectRatio: '3/4', objectPosition: 'center 15%' }}
+                      style={{ aspectRatio: '3/5', objectPosition: 'center 10%' }}
                     />
                   </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-card/60 via-transparent to-transparent" />
