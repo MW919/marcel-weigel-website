@@ -4,6 +4,7 @@ import AnimatedCounter from '@/components/AnimatedCounter';
 import PostCard from '@/components/PostCard';
 import HexagonQuote from '@/components/HexagonQuote';
 import GlowLabel from '@/components/GlowLabel';
+import Testimonials from '@/components/Testimonials';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
 import siteConfig from '@/lib/siteConfig';
 import { getLatestPosts } from '@/lib/ghost';
@@ -115,8 +116,19 @@ export default async function HomePage() {
           </AnimatedSection>
         </div>
 
-        {/* Ghost blog post cards — auto-fetched */}
-        <div className="flex gap-6 overflow-x-auto px-4 md:px-8 lg:px-12 pb-4 hide-scrollbar" style={{ scrollSnapType: 'x mandatory' }}>
+        {/* Ghost blog post cards — with mobile swipe arrows */}
+        <div className="relative max-w-[1200px] mx-auto">
+          {/* Swipe arrows — visible on mobile only */}
+          <div className="flex items-center justify-between absolute inset-0 pointer-events-none z-10 md:hidden px-1">
+            <div className="pointer-events-auto animate-bounce-arrow-left">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light/60"><path d="M15 18l-6-6 6-6"/></svg>
+            </div>
+            <div className="pointer-events-auto animate-bounce-arrow-right">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light/60"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </div>
+
+          <div className="flex gap-6 overflow-x-auto px-4 md:px-8 lg:px-12 pb-4 hide-scrollbar" style={{ scrollSnapType: 'x mandatory' }}>
           {ghostPosts.map((post, i) => (
             <a
               key={i}
@@ -170,6 +182,7 @@ export default async function HomePage() {
             </a>
           ))}
         </div>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════
@@ -205,6 +218,11 @@ export default async function HomePage() {
           })}
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════════════════
+          SECTION: TESTIMONIALS
+          ════════════════════════════════════════════════════════ */}
+      <Testimonials />
 
       {/* ════════════════════════════════════════════════════════
           SECTION 9: CONTACT CTA
