@@ -2,20 +2,19 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/lib/siteConfig';
+import WritingSignature from './WritingSignature';
 import { MenuIcon, CloseIcon } from './Icons';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [drawPhase, setDrawPhase] = useState(0); // 0=hidden, 1=drawing, 2=glow
 
   useEffect(() => {
     let lastY = 0;
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 60);
-      // Hide when scrolling down past 100px, show when scrolling up
       if (y > 100 && y > lastY + 5) setHidden(true);
       else if (y < lastY - 5) setHidden(false);
       lastY = y;
@@ -29,47 +28,20 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  useEffect(() => {
-    const t1 = setTimeout(() => setDrawPhase(1), 500);
-    const t2 = setTimeout(() => setDrawPhase(2), 4200);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
-
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`} style={{ transform: hidden ? 'translateY(-100%)' : 'translateY(0)' }}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-4 md:px-8 lg:px-12 transition-all duration-400 ${scrolled ? 'h-16 bg-brand-bg/95 backdrop-blur-xl border-b border-accent/15' : 'h-20 bg-transparent border-b border-transparent'}`}
+        style={{ transform: hidden ? 'translateY(-100%)' : 'translateY(0)' }}
+      >
         <Link href="/" className="flex items-center no-underline relative">
-          <div className={`relative transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`} style={{ aspectRatio: '1964 / 576' }}>
-            {/* Purple glow layer */}
-            <img
-              src="/images/signature.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-auto object-contain pointer-events-none"
-              style={{
-                filter: 'blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3)',
-                opacity: drawPhase >= 2 ? 0.7 : 0,
-                transition: 'opacity 1.2s ease-in',
-                animation: drawPhase >= 2 ? 'sigGlowPulse 3s ease-in-out infinite' : 'none',
-              }}
-            />
-            {/* Main signature */}
-            <img
-              src="/images/signature.png"
-              alt="Marcel Weigel"
-              className="h-full w-auto object-contain relative"
-              style={{ opacity: drawPhase >= 1 ? 1 : 0, transition: 'opacity 0.3s' }}
-            />
-            {/* Drawing reveal mask */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'var(--bg)',
-                clipPath: drawPhase >= 1 ? 'inset(0 0 0 100%)' : 'inset(0 0 0 0)',
-                transition: 'clip-path 3.5s cubic-bezier(0.22, 0.61, 0.36, 1)',
-              }}
-            />
-          </div>
+          <WritingSignature
+            className={`transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`}
+            height={scrolled ? 40 : 48}
+            duration={3.5}
+            delay={0.5}
+            trigger="mount"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -84,13 +56,6 @@ export default function Header() {
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </header>
-
-      <style jsx global>{`
-        @keyframes sigGlowPulse {
-          0%, 100% { opacity: 0.5; filter: blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3); }
-          50% { opacity: 0.8; filter: blur(16px) brightness(1.8) sepia(1) hue-rotate(250deg) saturate(3); }
-        }
-      `}</style>
 
       <div className={`fixed inset-0 z-[999] bg-brand-bg/[0.98] backdrop-blur-3xl flex flex-col items-center justify-center gap-10 transition-opacity duration-400 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         {siteConfig.navLinks.map((link, i) => (
