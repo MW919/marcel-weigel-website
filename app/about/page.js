@@ -43,12 +43,9 @@ export default function AboutPage() {
             <div>
               <AnimatedSection>
                 <GlowLabel>ABOUT</GlowLabel>
-                <h1 className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-extrabold mb-2 leading-[1.15]">
+                <h1 className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-extrabold mb-8 leading-[1.15]">
                   <span className="bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">Marcel Weigel</span>
                 </h1>
-                <p className="font-heading text-sm text-accent-light tracking-wide mb-8">
-                  Enterprise Architecture & Digital Strategy Leader • AI Strategist
-                </p>
               </AnimatedSection>
 
               <AnimatedSection delay={0.15}>
