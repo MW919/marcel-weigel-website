@@ -49,7 +49,7 @@ export default function Header() {
       >
         <Link href="/" className="flex items-center no-underline relative">
           <WritingSignature
-            className={`transition-all duration-300 ${scrolled ? 'h-6 md:h-10' : 'h-7 md:h-12'}`}
+            className={`transition-all duration-300 ${scrolled ? 'h-6 md:h-8' : 'h-7 md:h-9'}`}
             duration={3.5}
             delay={0.5}
             trigger="mount"
