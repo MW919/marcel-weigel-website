@@ -105,14 +105,27 @@ export default async function ReadPage() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Swipeable on mobile, grid on desktop */}
+          <div className="relative">
+            {/* Mobile swipe arrows */}
+            <div className="flex items-center justify-between absolute inset-0 pointer-events-none z-10 md:hidden px-1">
+              <div className="pointer-events-auto animate-bounce-arrow-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light/60"><path d="M15 18l-6-6 6-6"/></svg>
+              </div>
+              <div className="pointer-events-auto animate-bounce-arrow-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light/60"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            </div>
+
+            <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible hide-scrollbar" style={{ scrollSnapType: 'x mandatory' }}>
             {posts.map((post, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <a
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block no-underline group"
+                  className="block no-underline group min-w-[300px] max-w-[340px] md:min-w-0 md:max-w-none flex-shrink-0 md:flex-shrink"
+                  style={{ scrollSnapAlign: 'start' }}
                 >
                   <div className="h-full rounded-xl border border-accent/15 bg-brand-card overflow-hidden flex flex-col transition-all duration-300 group-hover:border-accent/40 group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgba(117,70,140,0.15)]">
                     {post.featureImage && (
@@ -136,6 +149,7 @@ export default async function ReadPage() {
                 </a>
               </AnimatedSection>
             ))}
+            </div>
           </div>
 
           {/* CTA to full blog */}
