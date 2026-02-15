@@ -5,8 +5,20 @@ import MeshBackground from '@/components/MeshBackground';
 
 export const metadata = {
   title: 'Marcel Weigel',
-  description: 'Aligning technology with business needs through architecture thinking. Enterprise Architecture & Digital Strategy insights by Marcel Weigel.',
+  description: 'I provide expert insights on the latest technology trends and enterprise architecture. Let\'s discuss how I can add value to your upcoming events, projects, or initiatives.',
   keywords: ['Marcel Weigel', 'Enterprise Architecture', 'Digital Strategy', 'AI Strategy', 'Architecture Thinking', 'Architecture Experience'],
+  openGraph: {
+    title: 'Marcel Weigel',
+    description: 'I provide expert insights on the latest technology trends and enterprise architecture. Let\'s discuss how I can add value to your upcoming events, projects, or initiatives.',
+    url: 'https://www.marcel-weigel.com',
+    siteName: 'Marcel Weigel',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Marcel Weigel',
+    description: 'I provide expert insights on the latest technology trends and enterprise architecture. Let\'s discuss how I can add value to your upcoming events, projects, or initiatives.',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
