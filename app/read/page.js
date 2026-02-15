@@ -62,7 +62,7 @@ export default async function ReadPage() {
 
           <AnimatedSection delay={0.3}>
             <p className="font-body text-[clamp(1rem,2vw,1.15rem)] leading-[1.8] text-brand-muted max-w-[600px] mx-auto mb-10">
-              A curated collection of articles, frameworks, and perspectives on Enterprise Architecture, Digital Strategy, and AI Transformation. Subscribe to get new insights delivered to your inbox.
+              A curated collection of articles, thoughts, and perspectives on Enterprise Architecture, Digital & AI Strategy, and Digital Transformation. Subscribe to get new insights delivered to your inbox.
             </p>
           </AnimatedSection>
 
