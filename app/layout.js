@@ -21,6 +21,14 @@ export const metadata = {
     siteName: 'Marcel Weigel',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Marcel Weigel — Enterprise Architecture & Digital Strategy Leader',
+      },
+    ],
   },
   twitter: {
     card: 'summary',
