@@ -5,8 +5,9 @@ import ConnectingNodes from '@/components/ConnectingNodes';
 import siteConfig from '@/lib/siteConfig';
 
 export const metadata = {
-  title: 'Contact — Marcel Weigel',
-  description: 'Get in touch with Marcel Weigel for collaboration, speaking engagements, or advisory.',
+  title: 'Contact',
+  description: 'Get in touch with Marcel Weigel for speaking engagements, enterprise architecture advisory, or collaboration on digital strategy initiatives.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {
