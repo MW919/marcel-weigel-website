@@ -1,8 +1,9 @@
 import siteConfig from '@/lib/siteConfig';
 
 export const metadata = {
-  title: 'Impressum — Marcel Weigel',
-  description: 'Impressum / Legal Notice',
+  title: 'Impressum',
+  description: 'Impressum / Legal Notice — Marcel Weigel',
+  robots: { index: false },
 };
 
 export default function ImpressumPage() {
