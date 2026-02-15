@@ -23,7 +23,7 @@ export default function DatenschutzPage() {
 
             <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Allgemeine Hinweise</h3>
             <p>
-              Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+              Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie der unter diesem Text aufgeführten Datenschutzerklärung.
             </p>
 
             <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Datenerfassung auf dieser Website</h3>
@@ -31,30 +31,30 @@ export default function DatenschutzPage() {
               <strong className="text-brand-text">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br />
               Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:<br /><br />
               {imp.fullName}<br />
-              {imp.email}<br /><br />
+              E-Mail: {imp.email}<br /><br />
               Weitere Angaben finden Sie im <a href="/impressum" className="text-accent-light hover:text-accent">Impressum</a>.
             </p>
 
             <p>
               <strong className="text-brand-text">Wie erfassen wir Ihre Daten?</strong><br />
-              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. über das Kontaktformular). Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen, beispielsweise durch die Anmeldung zum Newsletter. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
             </p>
 
             <p>
               <strong className="text-brand-text">Wofür nutzen wir Ihre Daten?</strong><br />
-              Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+              Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden, sofern Sie dem zugestimmt haben.
             </p>
 
             <p>
               <strong className="text-brand-text">Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br />
-              Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese jederzeit widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen sowie ein Recht auf Datenübertragbarkeit. Ferner steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
+              Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen sowie ein Recht auf Datenübertragbarkeit. Ferner steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
             </p>
           </div>
 
           <div>
             <h2 className="text-brand-text font-heading text-lg font-bold mb-2">2. Hosting</h2>
             <p>
-              Diese Website wird bei IONOS (1&1 IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Deutschland) gehostet. Wenn Sie diese Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen.
+              Diese Website wird bei IONOS (1&1 IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Deutschland) gehostet. Wenn Sie diese Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen. Die Server befinden sich in Deutschland.
             </p>
             <p>
               Details entnehmen Sie der Datenschutzerklärung von IONOS:<br />
@@ -63,7 +63,7 @@ export default function DatenschutzPage() {
               </a>
             </p>
             <p>
-              Die Verwendung von IONOS erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO.
+              Die Verwendung von IONOS erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.
             </p>
           </div>
 
@@ -84,6 +84,14 @@ export default function DatenschutzPage() {
               {imp.fullName}<br />
               E-Mail: {imp.email}
             </p>
+            <p>
+              Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.
+            </p>
+
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Speicherdauer</h3>
+            <p>
+              Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben.
+            </p>
 
             <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
             <p>
@@ -92,7 +100,7 @@ export default function DatenschutzPage() {
 
             <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
             <p>
-              Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde in datenschutzrechtlichen Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem der Verantwortliche seinen Sitz hat.
+              Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde zu, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.
             </p>
 
             <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Recht auf Datenübertragbarkeit</h3>
@@ -102,7 +110,12 @@ export default function DatenschutzPage() {
 
             <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Auskunft, Löschung und Berichtigung</h3>
             <p>
-              Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten.
+              Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.
+            </p>
+
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Recht auf Einschränkung der Verarbeitung</h3>
+            <p>
+              Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden.
             </p>
           </div>
 
@@ -122,29 +135,62 @@ export default function DatenschutzPage() {
               <li>IP-Adresse</li>
             </ul>
             <p>
-              Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
-            </p>
-
-            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Kontaktformular</h3>
-            <p>
-              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-            </p>
-            <p>
-              Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
+              Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung seiner Website — hierzu müssen die Server-Log-Dateien erfasst werden.
             </p>
           </div>
 
           <div>
-            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">5. Schriftarten</h2>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">5. Externe Inhalte und Dienste</h2>
+
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Blog-Inhalte (Ghost CMS)</h3>
             <p>
-              Diese Website nutzt keine externen Schriftarten-Dienste (wie z.B. Google Fonts). Alle Schriftarten werden lokal von diesem Server geladen. Es findet keine Verbindung zu Drittanbietern statt.
+              Auf dieser Website werden Blogartikel und deren Vorschaubilder von der Plattform Ghost (Ghost Foundation, ghost.org) eingebunden. Dabei werden Artikel-Vorschaubilder direkt von Ghost-Servern geladen, wobei Ihr Browser eine Verbindung zu Ghost-Servern herstellt und dabei Ihre IP-Adresse übermittelt wird.
+            </p>
+            <p>
+              Die Einbindung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse daran, aktuelle Blog-Inhalte auf unserer Website darzustellen.
+            </p>
+
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Newsletter-Anmeldung (Ghost Members)</h3>
+            <p>
+              Auf der Seite „Read" besteht die Möglichkeit, sich für unseren Newsletter „Architecture Experience" anzumelden. Wenn Sie sich anmelden, wird Ihre E-Mail-Adresse an Ghost (Ghost Foundation) übermittelt und dort gespeichert. Ghost verarbeitet Ihre Daten zum Zweck des Newsletter-Versands.
+            </p>
+            <p>
+              Die Anmeldung zum Newsletter erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit widerrufen, z.B. über den Abmeldelink in jeder Newsletter-E-Mail. Die Rechtmäßigkeit der bereits erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt.
+            </p>
+            <p>
+              Weitere Informationen zum Datenschutz bei Ghost finden Sie unter:<br />
+              <a href="https://ghost.org/privacy/" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent">
+                https://ghost.org/privacy/
+              </a>
+            </p>
+
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">LinkedIn</h3>
+            <p>
+              Diese Website enthält Links zu unserem LinkedIn-Profil. Wenn Sie auf einen LinkedIn-Link klicken, werden Sie auf die LinkedIn-Website weitergeleitet. Dabei gelten die Datenschutzbestimmungen von LinkedIn. Es werden von uns keine LinkedIn-Plugins oder Tracking-Pixel eingebunden.
             </p>
           </div>
 
           <div>
-            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">6. Cookies</h2>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">6. Schriftarten</h2>
             <p>
-              Diese Website verwendet derzeit keine Cookies und keine Tracking-Tools. Sollte sich dies in Zukunft ändern, wird diese Datenschutzerklärung entsprechend aktualisiert.
+              Diese Website nutzt keine externen Schriftarten-Dienste (wie z.B. Google Fonts). Alle Schriftarten werden lokal von diesem Server geladen (Self-Hosting). Es findet dadurch keine Verbindung zu Drittanbietern statt.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">7. Cookies und Tracking</h2>
+            <p>
+              Diese Website verwendet derzeit keine Cookies, keine Tracking-Tools und keine Analyse-Dienste. Es werden keine Nutzungsprofile erstellt.
+            </p>
+            <p>
+              Sollte sich dies in Zukunft ändern (z.B. durch Einführung eines datenschutzfreundlichen Analyse-Tools), wird diese Datenschutzerklärung entsprechend aktualisiert und es wird, sofern erforderlich, Ihre Einwilligung eingeholt.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">8. SSL- bzw. TLS-Verschlüsselung</h2>
+            <p>
+              Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
             </p>
           </div>
 
