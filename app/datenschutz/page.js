@@ -1,8 +1,9 @@
 import siteConfig from '@/lib/siteConfig';
 
 export const metadata = {
-  title: 'Datenschutzerklärung — Marcel Weigel',
-  description: 'Datenschutzerklärung / Privacy Policy',
+  title: 'Datenschutzerklärung',
+  description: 'Datenschutzerklärung / Privacy Policy — Marcel Weigel',
+  robots: { index: false },
 };
 
 export default function DatenschutzPage() {
