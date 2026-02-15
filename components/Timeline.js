@@ -1,50 +1,62 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const milestones = [
   {
-    year: '2012',
-    title: 'Starting the Journey',
-    description: 'Entered the world of IT and business technology, discovering the power of structured thinking to solve complex organizational challenges.',
-    icon: '🚀'
+    year: '2010',
+    title: 'Where It All Began',
+    description: 'Started as a freight forwarding and logistics services apprentice — learning the business from the ground up. This hands-on foundation in logistics operations would shape everything that followed.',
+    icon: '📦'
+  },
+  {
+    year: '2013',
+    title: 'Entering the World of IT',
+    description: 'Transitioned into a Junior Functional Consultant role, contributing to the implementation of a group-wide transportation platform. Translating end-to-end logistics processes into scalable system configurations — the first spark of bridging business and technology.',
+    icon: '💻'
+  },
+  {
+    year: '2015',
+    title: 'Operations & Service Management',
+    description: 'Stepped into IT Service Management, bridging business architecture, service delivery, and operations for pan-European logistics platforms. Discovered the power of ITIL frameworks and operational excellence.',
+    icon: '⚙️'
   },
   {
     year: '2016',
-    title: 'Digital Transformation',
-    description: 'Led digital transformation initiatives across logistics and supply chain, learning firsthand how architecture decisions shape business outcomes.',
-    icon: '⚡'
+    title: 'Building Products & Growing',
+    description: 'Took ownership as Application Manager and Product Owner for a large-scale digital platform serving thousands of users across European land transport. Learned to steer demand, shape roadmaps, and find solutions for real business needs. In parallel, began studying Business Informatics — hungry to deepen the connection between business and technology.',
+    icon: '🚀'
   },
   {
-    year: '2020',
-    title: 'Enterprise Architecture Leadership',
-    description: 'Stepped into a dedicated Enterprise Architecture role, driving governance frameworks and technology roadmaps at enterprise scale.',
+    year: '2018',
+    title: 'The Architecture Moment',
+    description: 'Became a Global Solution & Domain Architect — the role that changed everything. Designing and governing global domain architecture, translating business strategy into scalable solutions across regions. This was PLAN: the huge step from building products to shaping the blueprint.',
     icon: '🏗️'
   },
   {
-    year: '2023',
-    title: 'Architecture Experience',
-    description: 'Launched the Architecture Experience blog and newsletter, sharing insights on EA, digital strategy, and architecture thinking with a growing community.',
-    icon: '✍️'
+    year: '2021',
+    title: 'Leading Digital Transformation',
+    description: 'Led a cross-functional product team as Squad Lead, driving digital transformation across multimodal logistics. Acted as a trusted advisor to senior leadership, shaping scalable digital strategies and delivering measurable cost savings and business impact.',
+    icon: '⚡'
   },
   {
-    year: '2024',
-    title: 'AI Strategy',
-    description: 'Expanded focus into AI Strategy, helping organizations navigate the intersection of enterprise architecture and artificial intelligence.',
-    icon: '🤖'
-  },
-  {
-    year: 'Now',
-    title: 'What Drives Me',
-    description: 'Bridging business needs with technology through architecture. Turning complexity into clarity, and strategy into measurable outcomes.',
+    year: '2022',
+    title: 'Enterprise Architecture',
+    description: 'Joined the Global Enterprise Architecture and IT leadership team. Building the EA function from the ground up, planning target landscapes, shaping the architecture repository, and translating between business and technology through capability mapping. Architecture, Architecture, Architecture.',
     icon: '🎯'
+  },
+  {
+    year: '2025',
+    title: 'Architecture Experience',
+    description: 'Launched the Architecture Experience blog and newsletter — a platform to share insights, fresh perspectives, and practical thinking on Enterprise Architecture, Digital Strategy, and AI with a growing community of practitioners and leaders.',
+    icon: '✍️'
   },
 ];
 
 export default function Timeline() {
   const sectionRef = useRef(null);
   const [progress, setProgress] = useState(0);
-  const [visibleItems, setVisibleItems] = useState([false, false, false, false, false, false]);
+  const [visibleItems, setVisibleItems] = useState(Array(milestones.length).fill(false));
 
   useEffect(() => {
     let ticking = false;
