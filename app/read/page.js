@@ -152,17 +152,45 @@ export default async function ReadPage() {
             </div>
           </div>
 
-          {/* CTA to full blog */}
+          {/* CTA to full blog — dynamic highlight */}
           <AnimatedSection delay={0.3}>
-            <div className="text-center mt-12">
-              <a
-                href="https://www.architecture-experience.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 py-3.5 px-10 bg-transparent text-brand-text no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md border border-accent/40 hover:border-accent hover:bg-accent/10 transition-all duration-300"
-              >
-                Visit Architecture Experience →
-              </a>
+            <div className="relative mt-16 py-14 px-6 rounded-2xl border border-accent/10 bg-brand-card/50 overflow-hidden text-center">
+              {/* Animated radial glow */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-[300px] h-[300px] rounded-full opacity-60" style={{ background: 'radial-gradient(circle, rgba(117,70,140,0.15) 0%, transparent 70%)', animation: 'ctaPulse 3s ease-in-out infinite' }} />
+              </div>
+
+              {/* Orbiting dots */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="relative w-[200px] h-[200px]" style={{ animation: 'orbitSpin 12s linear infinite' }}>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent-light/40" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent/30" />
+                  <div className="absolute top-1/2 left-0 -translate-y-1/2 w-1 h-1 rounded-full bg-accent-light/25" />
+                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-accent/35" />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-[1]">
+                <p className="font-body text-sm text-brand-muted mb-6 max-w-[400px] mx-auto">
+                  Explore the full collection of articles, frameworks, and fresh perspectives on the blog.
+                </p>
+                <a
+                  href="https://www.architecture-experience.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center gap-2 py-4 px-10 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(117,70,140,0.4)] transition-all duration-300"
+                >
+                  {/* Shimmer effect on button */}
+                  <span className="absolute inset-0 rounded-lg overflow-hidden">
+                    <span className="absolute inset-0" style={{ background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.12) 55%, transparent 60%)', animation: 'shimmer 3s ease-in-out infinite' }} />
+                  </span>
+                  <span className="relative">Visit Architecture Experience</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="relative transition-transform duration-300 group-hover:translate-x-1">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </AnimatedSection>
         </div>
