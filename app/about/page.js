@@ -20,19 +20,18 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-10 md:gap-14 items-start">
             {/* Photo */}
             <AnimatedSection>
-              <div className="relative mx-auto md:mx-0 w-[220px] md:w-full">
-                <div className="relative rounded-2xl overflow-hidden border border-accent/15 bg-brand-card">
+              <div className="relative mx-auto md:mx-0 w-[200px] md:w-full">
+                <div className="relative rounded-2xl overflow-hidden border border-accent/15 bg-brand-bg">
                   <picture>
                     <source srcSet="/images/about-photo-mobile.webp" media="(max-width: 768px)" type="image/webp" />
                     <source srcSet="/images/about-photo.webp" type="image/webp" />
                     <img
                       src="/images/about-photo.png"
                       alt="Marcel Weigel"
-                      className="w-full object-cover"
-                      style={{ aspectRatio: '3/5', objectPosition: 'center 10%' }}
+                      className="w-full h-auto object-contain"
                     />
                   </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-card/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" />
                 </div>
                 {/* Ambient glow behind photo */}
                 <div className="absolute -inset-4 rounded-2xl bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[20px] -z-10" />
@@ -56,10 +55,10 @@ export default function AboutPage() {
                   As an Enterprise Architect, I bridge the gap between business strategy and technology execution. My approach centers on architecture thinking — a structured yet adaptive way to align digital capabilities with organizational goals.
                 </p>
                 <p className="font-body text-base leading-[1.9] text-brand-muted mb-5">
-                  With a background spanning logistics, digital transformation, and AI strategy, I've helped organizations move from complexity to clarity. I believe the best architectures don't just describe systems — they enable decisions, accelerate outcomes, and create lasting value.
+                  With a business background spanning logistics and integrated facility management, I've helped organizations move from complexity to clarity. I believe the best architectures enable good decisions, accelerate outcomes, and create lasting value.
                 </p>
                 <p className="font-body text-base leading-[1.9] text-brand-muted mb-8">
-                  I share my thinking regularly through articles, frameworks, and speaking engagements — published on my blog <a href="https://www.architecture-experience.com" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent transition-colors">"Architecture Experience"</a>.
+                  I share my thinking regularly through articles and fresh perspectives — published on my blog <a href="https://www.architecture-experience.com" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent transition-colors">"Architecture Experience"</a>.
                 </p>
               </AnimatedSection>
 
