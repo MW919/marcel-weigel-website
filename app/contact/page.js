@@ -30,7 +30,7 @@ export default function ContactPage() {
 
         <AnimatedSection delay={0.15}>
           <p className="font-body text-[clamp(1rem,2vw,1.15rem)] leading-[1.8] text-brand-muted max-w-[550px] mx-auto mb-12">
-            I provide expert insights on enterprise architecture, digital & AI strategy, and digital transformation. Let's discuss how I can add value to your upcoming events, projects, or initiatives.
+            Let's discuss how I can add value to your upcoming events, projects, or initiatives.
           </p>
         </AnimatedSection>
 
