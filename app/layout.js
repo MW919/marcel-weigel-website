@@ -70,6 +70,10 @@ const jsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://plausible.io/js/pa-pcvSpcMy-L8YDAPdnch5m.js"></script>
+        <script dangerouslySetInnerHTML={{ __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()` }} />
+      </head>
       <body>
         <script
           type="application/ld+json"
