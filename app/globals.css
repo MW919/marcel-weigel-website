@@ -121,3 +121,17 @@ body { font-family: 'Outfit', 'Century Gothic', 'Avenir', sans-serif; background
   50% { transform: translate(calc(-50% - 5px), calc(-50% - 8px)) rotate(-2deg) scale(1); }
   75% { transform: translate(calc(-50% + 3px), calc(-50% + 10px)) rotate(2deg) scale(0.95); }
 }
+
+/* Read page CTA animations */
+@keyframes ctaPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-150%); }
+  50%, 100% { transform: translateX(150%); }
+}
