@@ -4,8 +4,9 @@ import GlowLabel from '@/components/GlowLabel';
 import { getLatestPosts } from '@/lib/ghost';
 
 export const metadata = {
-  title: 'Read — Marcel Weigel',
-  description: 'Architecture Experience — Insights on Enterprise Architecture, Digital Strategy, AI, and architecture thinking.',
+  title: 'Read',
+  description: 'Articles, thoughts, and perspectives on Enterprise Architecture, Digital & AI Strategy, and Digital Transformation by Marcel Weigel.',
+  alternates: { canonical: '/read' },
 };
 
 export default async function ReadPage() {
