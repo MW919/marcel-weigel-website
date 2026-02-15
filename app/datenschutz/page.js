@@ -178,17 +178,35 @@ export default function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">7. Cookies und Tracking</h2>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">7. Webanalyse</h2>
+
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Plausible Analytics</h3>
             <p>
-              Diese Website verwendet derzeit keine Cookies, keine Tracking-Tools und keine Analyse-Dienste. Es werden keine Nutzungsprofile erstellt.
+              Diese Website nutzt Plausible Analytics, einen datenschutzfreundlichen Webanalysedienst der Plausible Insights OÜ (Västriku tn 2, 50403 Tartu, Estland). Plausible erhebt keine personenbezogenen Daten, verwendet keine Cookies und speichert keine Informationen im Browser der Besucher.
             </p>
             <p>
-              Sollte sich dies in Zukunft ändern (z.B. durch Einführung eines datenschutzfreundlichen Analyse-Tools), wird diese Datenschutzerklärung entsprechend aktualisiert und es wird, sofern erforderlich, Ihre Einwilligung eingeholt.
+              Plausible erfasst ausschließlich aggregierte, anonymisierte Daten wie Seitenaufrufe, Verweisquellen, verwendete Browser und Betriebssysteme sowie ungefähre geographische Herkunft (auf Länderebene). Eine Identifizierung einzelner Besucher ist nicht möglich. IP-Adressen werden zu keinem Zeitpunkt gespeichert.
+            </p>
+            <p>
+              Die Datenverarbeitung erfolgt auf Servern in der Europäischen Union. Die Nutzung von Plausible Analytics erfolgt auf Grundlage unseres berechtigten Interesses an einer datenschutzfreundlichen Analyse der Websitenutzung (Art. 6 Abs. 1 lit. f DSGVO). Eine Einwilligung (Cookie-Banner) ist nach Einschätzung der Datenschutzbehörden nicht erforderlich, da Plausible keine Cookies setzt und keine personenbezogenen Daten verarbeitet.
+            </p>
+            <p>
+              Weitere Informationen zum Datenschutz bei Plausible finden Sie unter:<br />
+              <a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent">
+                https://plausible.io/data-policy
+              </a>
             </p>
           </div>
 
           <div>
-            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">8. SSL- bzw. TLS-Verschlüsselung</h2>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">8. Cookies</h2>
+            <p>
+              Diese Website verwendet keine Cookies. Es werden keine Informationen im Browser der Besucher gespeichert. Auch der eingesetzte Webanalysedienst Plausible Analytics arbeitet vollständig ohne Cookies.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-brand-text font-heading text-lg font-bold mb-2">9. SSL- bzw. TLS-Verschlüsselung</h2>
             <p>
               Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
             </p>
