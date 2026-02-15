@@ -5,8 +5,9 @@ import Timeline from '@/components/Timeline';
 import siteConfig from '@/lib/siteConfig';
 
 export const metadata = {
-  title: 'About — Marcel Weigel',
-  description: 'About Marcel Weigel — Enterprise Architect, Digital Strategy Leader, AI Strategist.',
+  title: 'About',
+  description: 'About Marcel Weigel — Enterprise Architect, Digital Strategy Leader, and AI Strategist bridging business strategy and technology execution.',
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {
