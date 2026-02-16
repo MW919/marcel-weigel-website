@@ -61,13 +61,13 @@ export default async function HomePage() {
           <div className="max-w-[700px] mx-auto text-center">
             <AnimatedSection delay={0.4}>
               <span className="font-heading text-sm font-semibold tracking-[4px] uppercase text-accent-light block mb-4">
-                HEY! I'M MARCEL.
+                HEY!
               </span>
             </AnimatedSection>
 
             <AnimatedSection delay={0.5}>
               <h2 className="font-heading text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight text-center mb-5" style={{ color: '#f4f6fc' }}>
-                Marcel Weigel
+                I'm Marcel Weigel
               </h2>
             </AnimatedSection>
 
