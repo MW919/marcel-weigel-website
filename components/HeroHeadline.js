@@ -2,23 +2,27 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+const words = [
+  { text: 'Turning' },
+  { text: 'Complexity' },
+  { text: 'into' },
+  { text: 'Clarity', highlight: true },
+];
+
 export default function HeroHeadline() {
   const ref = useRef(null);
-  const [phase, setPhase] = useState(0);
-  // phase 0: nothing visible
-  // phase 1: "Turning Complexity" fades in
-  // phase 2: "into" fades in
-  // phase 3: "Clarity" fades in (bold, white)
-  // phase 4: underline sweeps in + glow appears
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [underlineVisible, setUnderlineVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setPhase(1), 200);
-          setTimeout(() => setPhase(2), 700);
-          setTimeout(() => setPhase(3), 1100);
-          setTimeout(() => setPhase(4), 1600);
+          words.forEach((_, i) => {
+            setTimeout(() => setVisibleCount(i + 1), 300 + i * 350);
+          });
+          // Underline sweeps in after last word
+          setTimeout(() => setUnderlineVisible(true), 300 + words.length * 350 + 300);
           observer.disconnect();
         }
       },
@@ -31,86 +35,96 @@ export default function HeroHeadline() {
   return (
     <p
       ref={ref}
-      className="font-heading text-[clamp(1.5rem,4vw,2.8rem)] font-light leading-[1.85] italic text-center mb-10 md:mb-14 max-w-[800px] mx-auto"
+      className="font-heading text-[clamp(1.5rem,4vw,2.8rem)] font-light leading-[1.85] italic text-center mb-10 md:mb-14 max-w-[800px] mx-auto px-2"
       style={{ color: '#d8d5e0' }}
     >
-      {/* Opening quote mark */}
+      {/* Opening quote */}
       <span
-        className="text-accent-light/40 text-[1.3em] transition-all duration-500"
-        style={{ opacity: phase >= 1 ? 0.4 : 0 }}
-      >
-        &ldquo;
-      </span>
-
-      {/* "Turning Complexity" */}
-      <span
-        className="inline transition-all duration-700"
+        className="inline-block mr-1 not-italic transition-all duration-500"
         style={{
-          opacity: phase >= 1 ? 1 : 0,
-          transform: phase >= 1 ? 'translateY(0)' : 'translateY(12px)',
+          opacity: visibleCount >= 1 ? 0.35 : 0,
+          color: '#9b6bb5',
+          fontSize: '1.2em',
+          lineHeight: 1,
+          verticalAlign: 'baseline',
         }}
       >
-        Turning Complexity{' '}
+        &#x201E;
       </span>
 
-      {/* "into" */}
-      <span
-        className="inline transition-all duration-700"
-        style={{
-          opacity: phase >= 2 ? 1 : 0,
-          transform: phase >= 2 ? 'translateY(0)' : 'translateY(12px)',
-        }}
-      >
-        into{' '}
-      </span>
+      {words.map((w, i) => {
+        const isVisible = visibleCount > i;
 
-      {/* "Clarity" — bold, not-italic, white, with glow underline */}
-      <span className="relative inline-block">
-        <span
-          className="relative font-bold not-italic pb-1 transition-all duration-700"
-          style={{
-            color: '#f4f6fc',
-            opacity: phase >= 3 ? 1 : 0,
-            transform: phase >= 3 ? 'translateY(0)' : 'translateY(12px)',
-          }}
-        >
-          Clarity
-          {/* Gradient glow underline — same as quote section */}
+        if (w.highlight) {
+          return (
+            <span key={i} className="relative inline-block">
+              <span
+                className="relative font-bold not-italic pb-1 transition-all duration-700"
+                style={{
+                  color: '#f4f6fc',
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(14px)',
+                }}
+              >
+                {w.text}
+                {/* Gradient glow underline */}
+                <span
+                  className="absolute bottom-0 left-[-2%] right-[-2%] h-[3px] rounded-sm"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, #75468c, #9b6bb5, #75468c, transparent)',
+                    opacity: underlineVisible ? 1 : 0,
+                    transform: underlineVisible ? 'scaleX(1)' : 'scaleX(0)',
+                    transition: 'opacity 0.6s ease-out, transform 0.8s cubic-bezier(.22,.61,.36,1)',
+                  }}
+                />
+                {/* Glow blur beneath */}
+                <span
+                  className="absolute left-[5%] right-[5%] h-[6px] rounded-[50%]"
+                  style={{
+                    bottom: '-2px',
+                    background: 'linear-gradient(90deg, transparent, rgba(117,70,140,0.4), transparent)',
+                    filter: 'blur(4px)',
+                    opacity: underlineVisible ? 1 : 0,
+                    transition: 'opacity 0.8s ease-out 0.2s',
+                  }}
+                />
+              </span>
+            </span>
+          );
+        }
+
+        return (
           <span
-            className="absolute bottom-0 left-[-2%] right-[-2%] h-[3px] rounded-sm"
+            key={i}
+            className="inline-block transition-all duration-700 mr-[0.3em]"
             style={{
-              background: 'linear-gradient(90deg, transparent, #75468c, #9b6bb5, #75468c, transparent)',
-              opacity: phase >= 4 ? 1 : 0,
-              transform: phase >= 4 ? 'scaleX(1)' : 'scaleX(0)',
-              transition: 'opacity 0.6s ease-out, transform 0.8s cubic-bezier(.22,.61,.36,1)',
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(14px)',
             }}
-          />
-          {/* Glow blur beneath */}
-          <span
-            className="absolute left-[5%] right-[5%] h-[6px] rounded-[50%]"
-            style={{
-              bottom: '-2px',
-              background: 'linear-gradient(90deg, transparent, rgba(117,70,140,0.4), transparent)',
-              filter: 'blur(4px)',
-              opacity: phase >= 4 ? 1 : 0,
-              transition: 'opacity 0.8s ease-out 0.2s',
-            }}
-          />
-        </span>
-      </span>
+          >
+            {w.text}
+          </span>
+        );
+      })}
 
       {/* Period + closing quote */}
       <span
         className="transition-all duration-500"
-        style={{ opacity: phase >= 3 ? 1 : 0 }}
+        style={{ opacity: visibleCount >= words.length ? 1 : 0 }}
       >
         .
       </span>
       <span
-        className="text-accent-light/40 text-[1.3em] transition-all duration-500"
-        style={{ opacity: phase >= 3 ? 0.4 : 0 }}
+        className="inline-block ml-0.5 not-italic transition-all duration-500"
+        style={{
+          opacity: visibleCount >= words.length ? 0.35 : 0,
+          color: '#9b6bb5',
+          fontSize: '1.2em',
+          lineHeight: 1,
+          verticalAlign: 'baseline',
+        }}
       >
-        &rdquo;
+        &#x201C;
       </span>
     </p>
   );
