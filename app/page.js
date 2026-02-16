@@ -3,6 +3,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import PostCard from '@/components/PostCard';
 import HexagonQuote from '@/components/HexagonQuote';
+import HeroHeadline from '@/components/HeroHeadline';
 import GlowLabel from '@/components/GlowLabel';
 import Testimonials from '@/components/Testimonials';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
@@ -23,20 +24,8 @@ export default async function HomePage() {
 
         <div className="relative z-[1] max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12">
 
-          {/* Headline with glow underline on "Clarity" */}
-          <AnimatedSection delay={0.1}>
-            <h1 className="font-heading text-[clamp(2.8rem,7vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-center mb-10 md:mb-14">
-              <span className="text-brand-text">Turning </span>
-              <span className="text-brand-text">Complexity</span>
-              <br />
-              <span className="text-brand-text">into </span>
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-accent-light to-accent bg-clip-text text-transparent">Clarity</span>
-                <span className="absolute -bottom-1 left-0 w-full h-[3px] rounded-full bg-gradient-to-r from-accent-light to-accent" style={{ boxShadow: '0 0 12px rgba(155,107,181,0.5), 0 0 24px rgba(117,70,140,0.3)' }} />
-              </span>
-              <span className="text-brand-text">.</span>
-            </h1>
-          </AnimatedSection>
+          {/* Headline with word cascade animation */}
+          <HeroHeadline />
 
           {/* Photo — centered */}
           <div className="relative w-full flex justify-center mb-10">
@@ -71,8 +60,9 @@ export default async function HomePage() {
           {/* Intro text */}
           <div className="max-w-[700px] mx-auto text-center">
             <AnimatedSection delay={0.4}>
-              <span className="font-heading text-sm font-semibold tracking-[4px] uppercase text-accent-light block mb-4">
-                HEY! I'M MARCEL.
+              <span className="block mb-1">
+                <span className="font-heading text-sm font-semibold tracking-[4px] uppercase text-accent-light">HEY! </span>
+                <span className="font-heading text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-brand-text">I'M MARCEL.</span>
               </span>
             </AnimatedSection>
 
