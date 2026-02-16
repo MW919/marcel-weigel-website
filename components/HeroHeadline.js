@@ -34,6 +34,14 @@ export default function HeroHeadline() {
       className="font-heading text-[clamp(1.5rem,4vw,2.8rem)] font-light leading-[1.85] italic text-center mb-10 md:mb-14 max-w-[800px] mx-auto"
       style={{ color: '#d8d5e0' }}
     >
+      {/* Opening quote mark */}
+      <span
+        className="text-accent-light/40 text-[1.3em] transition-all duration-500"
+        style={{ opacity: phase >= 1 ? 0.4 : 0 }}
+      >
+        &ldquo;
+      </span>
+
       {/* "Turning Complexity" */}
       <span
         className="inline transition-all duration-700"
@@ -91,12 +99,18 @@ export default function HeroHeadline() {
         </span>
       </span>
 
-      {/* Period */}
+      {/* Period + closing quote */}
       <span
         className="transition-all duration-500"
         style={{ opacity: phase >= 3 ? 1 : 0 }}
       >
         .
+      </span>
+      <span
+        className="text-accent-light/40 text-[1.3em] transition-all duration-500"
+        style={{ opacity: phase >= 3 ? 0.4 : 0 }}
+      >
+        &rdquo;
       </span>
     </p>
   );
