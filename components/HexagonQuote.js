@@ -184,7 +184,7 @@ export default function HexagonQuote() {
               {h.word}
               {/* Gradient glow underline — animated */}
               <span
-                className="absolute bottom-0 left-0 right-0 h-[3px] rounded-sm"
+                className="absolute bottom-0 left-[-2%] right-[-2%] h-[3px] rounded-sm"
                 style={{
                   background: 'linear-gradient(90deg, transparent, #75468c, #9b6bb5, #75468c, transparent)',
                   opacity: drawnKeywords[i] ? 1 : 0,
@@ -203,7 +203,7 @@ export default function HexagonQuote() {
                 }}
               />
             </span>
-            {h.after}{' '}
+            {h.after}{i < quote.highlights.length - 1 ? ' ' : ''}
           </span>
         ))}
         &rdquo;
