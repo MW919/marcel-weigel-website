@@ -49,7 +49,7 @@ export default async function HomePage() {
                       alt="Marcel Weigel"
                       className="w-full block"
                       width={871}
-                      height={1448}
+                      height={1700}
                       loading="eager"
                     />
                   </picture>
