@@ -2,29 +2,23 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const words = [
-  { text: 'Turning', break: false },
-  { text: 'Complexity', break: true },
-  { text: 'into', break: false },
-  { text: 'Clarity', highlight: true, break: false },
-  { text: '.', punctuation: true, break: false },
-];
-
 export default function HeroHeadline() {
   const ref = useRef(null);
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [underlineVisible, setUnderlineVisible] = useState(false);
+  const [phase, setPhase] = useState(0);
+  // phase 0: nothing visible
+  // phase 1: "Turning Complexity" fades in
+  // phase 2: "into" fades in
+  // phase 3: "Clarity" fades in (bold, white)
+  // phase 4: underline sweeps in + glow appears
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Cascade words one by one
-          words.forEach((_, i) => {
-            setTimeout(() => setVisibleCount(i + 1), 200 + i * 280);
-          });
-          // Underline sweeps in after "Clarity" appears
-          setTimeout(() => setUnderlineVisible(true), 200 + 4 * 280 + 200);
+          setTimeout(() => setPhase(1), 200);
+          setTimeout(() => setPhase(2), 700);
+          setTimeout(() => setPhase(3), 1100);
+          setTimeout(() => setPhase(4), 1600);
           observer.disconnect();
         }
       },
@@ -35,70 +29,75 @@ export default function HeroHeadline() {
   }, []);
 
   return (
-    <h1
+    <p
       ref={ref}
-      className="font-heading text-[clamp(2.6rem,7vw,4.8rem)] font-light italic leading-[1.15] tracking-tight text-center mb-10 md:mb-14"
+      className="font-heading text-[clamp(1.5rem,4vw,2.8rem)] font-light leading-[1.85] italic text-center mb-10 md:mb-14 max-w-[800px] mx-auto"
       style={{ color: '#d8d5e0' }}
     >
-      {words.map((w, i) => {
-        if (w.punctuation) {
-          return (
-            <span
-              key={i}
-              className="transition-all duration-500"
-              style={{
-                opacity: visibleCount > i ? 1 : 0,
-                color: '#d8d5e0',
-              }}
-            >
-              {w.text}
-            </span>
-          );
-        }
+      {/* "Turning Complexity" */}
+      <span
+        className="inline transition-all duration-700"
+        style={{
+          opacity: phase >= 1 ? 1 : 0,
+          transform: phase >= 1 ? 'translateY(0)' : 'translateY(12px)',
+        }}
+      >
+        Turning Complexity{' '}
+      </span>
 
-        if (w.highlight) {
-          return (
-            <span key={i} className="relative inline-block">
-              <span
-                className="relative font-bold not-italic transition-all duration-700"
-                style={{
-                  opacity: visibleCount > i ? 1 : 0,
-                  transform: visibleCount > i ? 'translateY(0)' : 'translateY(16px)',
-                  color: '#f4f6fc',
-                }}
-              >
-                {w.text}
-                {/* Glow underline — same as quote section */}
-                <span
-                  className="absolute -bottom-1 left-0 h-[3px] rounded-full bg-gradient-to-r from-accent-light to-accent transition-all duration-700 ease-out"
-                  style={{
-                    width: underlineVisible ? '100%' : '0%',
-                    boxShadow: underlineVisible
-                      ? '0 0 12px rgba(155,107,181,0.6), 0 0 24px rgba(117,70,140,0.3)'
-                      : 'none',
-                  }}
-                />
-              </span>
-              {' '}
-            </span>
-          );
-        }
+      {/* "into" */}
+      <span
+        className="inline transition-all duration-700"
+        style={{
+          opacity: phase >= 2 ? 1 : 0,
+          transform: phase >= 2 ? 'translateY(0)' : 'translateY(12px)',
+        }}
+      >
+        into{' '}
+      </span>
 
-        return (
-          <span key={i}>
-            <span
-              className="inline-block transition-all duration-600"
-              style={{
-                opacity: visibleCount > i ? 1 : 0,
-                transform: visibleCount > i ? 'translateY(0)' : 'translateY(16px)',
-              }}
-            >
-              {w.text}
-            </span>
-            {w.break ? <br /> : ' '}
-          </span>
-        );
-      })}
-    </h1>
+      {/* "Clarity" — bold, not-italic, white, with glow underline */}
+      <span className="relative inline-block">
+        <span
+          className="relative font-bold not-italic pb-1 transition-all duration-700"
+          style={{
+            color: '#f4f6fc',
+            opacity: phase >= 3 ? 1 : 0,
+            transform: phase >= 3 ? 'translateY(0)' : 'translateY(12px)',
+          }}
+        >
+          Clarity
+          {/* Gradient glow underline — same as quote section */}
+          <span
+            className="absolute bottom-0 left-[-2%] right-[-2%] h-[3px] rounded-sm"
+            style={{
+              background: 'linear-gradient(90deg, transparent, #75468c, #9b6bb5, #75468c, transparent)',
+              opacity: phase >= 4 ? 1 : 0,
+              transform: phase >= 4 ? 'scaleX(1)' : 'scaleX(0)',
+              transition: 'opacity 0.6s ease-out, transform 0.8s cubic-bezier(.22,.61,.36,1)',
+            }}
+          />
+          {/* Glow blur beneath */}
+          <span
+            className="absolute left-[5%] right-[5%] h-[6px] rounded-[50%]"
+            style={{
+              bottom: '-2px',
+              background: 'linear-gradient(90deg, transparent, rgba(117,70,140,0.4), transparent)',
+              filter: 'blur(4px)',
+              opacity: phase >= 4 ? 1 : 0,
+              transition: 'opacity 0.8s ease-out 0.2s',
+            }}
+          />
+        </span>
+      </span>
+
+      {/* Period */}
+      <span
+        className="transition-all duration-500"
+        style={{ opacity: phase >= 3 ? 1 : 0 }}
+      >
+        .
+      </span>
+    </p>
   );
 }
