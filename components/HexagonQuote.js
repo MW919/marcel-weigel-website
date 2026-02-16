@@ -184,7 +184,7 @@ export default function HexagonQuote() {
               {h.word}
               {/* Gradient glow underline — animated */}
               <span
-                className="absolute bottom-0 left-[-2%] right-[-2%] h-[3px] rounded-sm"
+                className="absolute bottom-0 left-0 right-0 h-[3px] rounded-sm"
                 style={{
                   background: 'linear-gradient(90deg, transparent, #75468c, #9b6bb5, #75468c, transparent)',
                   opacity: drawnKeywords[i] ? 1 : 0,
@@ -193,7 +193,7 @@ export default function HexagonQuote() {
                 }}
               />
               <span
-                className="absolute left-[5%] right-[5%] h-[6px] rounded-[50%]"
+                className="absolute left-[10%] right-[10%] h-[4px] rounded-[50%]"
                 style={{
                   bottom: '-2px',
                   background: 'linear-gradient(90deg, transparent, rgba(117,70,140,0.4), transparent)',
