@@ -16,68 +16,70 @@ export default async function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════
-          SECTION 1: HERO — Headline → Photo → Intro
+          SECTION 1: HERO — Headline → Photo+Name → Intro
           ════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-24 md:pt-28 pb-16">
+      <section className="relative overflow-hidden pt-24 md:pt-28 pb-12">
         {/* Ambient glow */}
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[60px] pointer-events-none" style={{ animation: 'heroGlow 6s ease-in-out infinite' }} />
+        <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.12)_0%,transparent_70%)] blur-[60px] pointer-events-none" style={{ animation: 'heroGlow 6s ease-in-out infinite' }} />
 
-        <div className="relative z-[1] max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12">
+        <div className="relative z-[1] max-w-[900px] mx-auto px-4 md:px-8">
 
-          {/* Headline with word cascade animation */}
+          {/* Headline with word cascade */}
           <HeroHeadline />
 
-          {/* Photo — centered */}
-          <div className="relative w-full flex justify-center mb-10">
-            <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[40px] pointer-events-none" />
-            <AnimatedSection delay={0.25}>
-              <div className="relative w-full max-w-[380px] mx-auto">
-                <picture>
-                  <source
-                    srcSet="/images/hero-photo-mobile.webp"
-                    media="(max-width: 768px)"
-                    type="image/webp"
-                  />
-                  <source
-                    srcSet="/images/hero-photo.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/images/hero-photo.png"
-                    alt="Marcel Weigel"
-                    className="w-full object-contain block"
-                    width={871}
-                    height={1810}
-                    loading="eager"
-                  />
-                </picture>
-                {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-[25%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
+          {/* Photo + Name — side by side */}
+          <AnimatedSection delay={0.25}>
+            <div className="flex items-center justify-center gap-5 md:gap-12 mb-8">
+              {/* Photo */}
+              <div className="relative flex-shrink-0">
+                <div className="absolute -inset-5 rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[20px] pointer-events-none" />
+                <div className="relative w-[130px] md:w-[230px] rounded-xl md:rounded-2xl overflow-hidden border border-accent/15">
+                  <picture>
+                    <source
+                      srcSet="/images/hero-photo-mobile.webp"
+                      media="(max-width: 768px)"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet="/images/hero-photo.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="/images/hero-photo.png"
+                      alt="Marcel Weigel"
+                      className="w-full block"
+                      width={871}
+                      height={1448}
+                      loading="eager"
+                    />
+                  </picture>
+                  {/* Bottom fade */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[25%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
+                </div>
               </div>
-            </AnimatedSection>
-          </div>
 
-          {/* Intro text */}
-          <div className="max-w-[700px] mx-auto text-center">
-            <AnimatedSection delay={0.4}>
-              <span className="font-heading text-sm font-semibold tracking-[4px] uppercase text-accent-light block mb-4">
-                HEY!
-              </span>
-            </AnimatedSection>
+              {/* Name */}
+              <div className="text-left">
+                <span className="font-heading text-[10px] md:text-xs font-semibold tracking-[3px] md:tracking-[4px] uppercase text-accent-light block mb-1 md:mb-2">
+                  HEY!
+                </span>
+                <h1 className="font-heading text-[clamp(1.7rem,4vw,3.2rem)] font-extrabold leading-[1.1] tracking-tight bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
+                  <span className="md:hidden">I'M<br />MARCEL.</span>
+                  <span className="hidden md:inline">I'M MARCEL.</span>
+                </h1>
+              </div>
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.5}>
-              <h2 className="font-heading text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight text-center mb-5 bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
-                I'M MARCEL.
-              </h2>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.55}>
-              <p className="font-body text-[clamp(1rem,2vw,1.15rem)] leading-[1.85] text-brand-muted mb-9">
+          {/* Intro text + CTAs */}
+          <div className="max-w-[620px] mx-auto text-center">
+            <AnimatedSection delay={0.45}>
+              <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-7">
                 My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
               </p>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.7}>
+            <AnimatedSection delay={0.6}>
               <div className="flex gap-4 flex-wrap justify-center">
                 <Link
                   href="/read"
