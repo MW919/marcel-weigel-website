@@ -35,7 +35,7 @@ export default function HeroHeadline() {
   return (
     <p
       ref={ref}
-      className="font-heading text-[clamp(1.15rem,4vw,2.8rem)] font-light leading-[1.85] italic text-center mb-8 md:mb-14 max-w-[800px] mx-auto px-2"
+      className="font-heading text-[clamp(1.05rem,4vw,2.8rem)] font-light leading-[1.85] italic text-center mb-8 md:mb-14 max-w-[800px] mx-auto px-2 whitespace-nowrap"
       style={{ color: '#d8d5e0' }}
     >
       {/* Opening quote */}
