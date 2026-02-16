@@ -66,8 +66,8 @@ export default async function HomePage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.5}>
-              <h2 className="font-heading text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight text-center mb-5" style={{ color: '#f4f6fc' }}>
-                I'm Marcel Weigel
+              <h2 className="font-heading text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight text-center mb-5 bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
+                I'M MARCEL.
               </h2>
             </AnimatedSection>
 
