@@ -15,76 +15,91 @@ export default async function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════
-          SECTION 1: HERO — Photo + Text (Jeff Winter style)
+          SECTION 1: HERO — Headline → Photo → Intro
           ════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-20">
-        {/* Hero Photo — vignette style */}
-        <div className="relative w-full flex justify-center">
-          {/* Ambient glow */}
-          <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[350px] h-[350px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.2)_0%,transparent_70%)] blur-[50px] pointer-events-none" style={{ animation: 'heroGlow 6s ease-in-out infinite' }} />
+      <section className="relative overflow-hidden pt-24 md:pt-28 pb-16">
+        {/* Ambient glow */}
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[60px] pointer-events-none" style={{ animation: 'heroGlow 6s ease-in-out infinite' }} />
+
+        <div className="relative z-[1] max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12">
+
+          {/* Headline with glow underline on "Clarity" */}
           <AnimatedSection delay={0.1}>
-            <div className="relative w-full max-w-[420px] mx-auto px-4">
-              <picture>
-                <source
-                  srcSet="/images/hero-photo-mobile.webp"
-                  media="(max-width: 768px)"
-                  type="image/webp"
-                />
-                <source
-                  srcSet="/images/hero-photo.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="/images/hero-photo.png"
-                  alt="Marcel Weigel"
-                  className="w-full object-contain object-bottom block"
-                  width={885}
-                  height={1806}
-                  loading="eager"
-                />
-              </picture>
-              {/* Vignette overlay — soft, barely visible */}
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center 40%, transparent 50%, var(--bg) 85%)' }} />
-            </div>
-          </AnimatedSection>
-        </div>
-
-        {/* Hero Text — below the photo */}
-        <div className="relative z-[1] max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12 pt-6 pb-20">
-          <AnimatedSection delay={0.3}>
-            <span className="font-heading text-sm font-semibold tracking-[4px] uppercase text-accent-light block mb-4">
-              {siteConfig.hero.greeting}
-            </span>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.45}>
-            <h1 className="font-heading text-[clamp(3rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight mb-6 bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
-              {siteConfig.hero.headline}
+            <h1 className="font-heading text-[clamp(2.8rem,7vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-center mb-10 md:mb-14">
+              <span className="text-brand-text">Turning </span>
+              <span className="text-brand-text">Complexity</span>
+              <br />
+              <span className="text-brand-text">into </span>
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-accent-light to-accent bg-clip-text text-transparent">Clarity</span>
+                <span className="absolute -bottom-1 left-0 w-full h-[3px] rounded-full bg-gradient-to-r from-accent-light to-accent" style={{ boxShadow: '0 0 12px rgba(155,107,181,0.5), 0 0 24px rgba(117,70,140,0.3)' }} />
+              </span>
+              <span className="text-brand-text">.</span>
             </h1>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.6}>
-            <p className="font-body text-[clamp(1rem,2vw,1.15rem)] leading-[1.8] text-brand-muted max-w-[660px] mb-9">
-              {siteConfig.hero.body}
-            </p>
-          </AnimatedSection>
+          {/* Photo — centered */}
+          <div className="relative w-full flex justify-center mb-10">
+            <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[40px] pointer-events-none" />
+            <AnimatedSection delay={0.25}>
+              <div className="relative w-full max-w-[380px] mx-auto">
+                <picture>
+                  <source
+                    srcSet="/images/hero-photo-mobile.webp"
+                    media="(max-width: 768px)"
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet="/images/hero-photo.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/images/hero-photo.png"
+                    alt="Marcel Weigel"
+                    className="w-full object-contain block"
+                    width={871}
+                    height={1810}
+                    loading="eager"
+                  />
+                </picture>
+                {/* Bottom fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-[25%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
+              </div>
+            </AnimatedSection>
+          </div>
 
-          <AnimatedSection delay={0.75}>
-            <div className="flex gap-4 flex-wrap">
-              <Link
-                href={siteConfig.hero.ctaPrimary.href}
-                className="inline-flex items-center gap-2 py-3.5 px-8 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
-              >
-                {siteConfig.hero.ctaPrimary.label}
-              </Link>
-              <Link
-                href={siteConfig.hero.ctaSecondary.href}
-                className="inline-flex items-center gap-2 py-3.5 px-8 bg-transparent text-brand-text no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md border border-accent/40 hover:border-accent hover:bg-accent/10 transition-all duration-300"
-              >
-                {siteConfig.hero.ctaSecondary.label}
-              </Link>
-            </div>
-          </AnimatedSection>
+          {/* Intro text */}
+          <div className="max-w-[700px] mx-auto text-center">
+            <AnimatedSection delay={0.4}>
+              <span className="font-heading text-sm font-semibold tracking-[4px] uppercase text-accent-light block mb-4">
+                HEY! I'M MARCEL.
+              </span>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.55}>
+              <p className="font-body text-[clamp(1rem,2vw,1.15rem)] leading-[1.85] text-brand-muted mb-9">
+                My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.7}>
+              <div className="flex gap-4 flex-wrap justify-center">
+                <Link
+                  href="/read"
+                  className="inline-flex items-center gap-2 py-3.5 px-8 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
+                >
+                  Explore My Thinking
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 py-3.5 px-8 bg-transparent text-brand-text no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md border border-accent/40 hover:border-accent hover:bg-accent/10 transition-all duration-300"
+                >
+                  Get in Touch
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+
         </div>
       </section>
 
