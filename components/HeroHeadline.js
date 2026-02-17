@@ -40,7 +40,7 @@ export default function HeroHeadline() {
     >
       {/* Opening quote */}
       <span
-        className="inline-block mr-1 not-italic transition-all duration-500"
+        className="inline-block mr-0 not-italic transition-all duration-500"
         style={{
           opacity: visibleCount >= 1 ? 0.35 : 0,
           color: '#9b6bb5',

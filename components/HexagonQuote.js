@@ -152,21 +152,21 @@ export default function HexagonQuote() {
               <polygon
                 points={hexPoints(0, 0, 32)}
                 fill="none"
-                stroke="rgba(155, 107, 181, 0.18)"
+                stroke="rgba(155, 107, 181, 0.28)"
                 strokeWidth="1"
               />
               {i % 3 === 0 && (
                 <polygon
                   points={hexPoints(0, 0, 32 * 0.55)}
                   fill="none"
-                  stroke="rgba(117, 70, 140, 0.10)"
+                  stroke="rgba(117, 70, 140, 0.18)"
                   strokeWidth="0.5"
                 />
               )}
               {i % 7 === 0 && (
                 <polygon
                   points={hexPoints(0, 0, 32)}
-                  fill="rgba(117, 70, 140, 0.03)"
+                  fill="rgba(117, 70, 140, 0.06)"
                   stroke="none"
                 />
               )}
