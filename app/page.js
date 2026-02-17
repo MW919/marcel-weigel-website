@@ -53,8 +53,6 @@ export default async function HomePage() {
                       loading="eager"
                     />
                   </picture>
-                  {/* Bottom fade */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[25%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
                 </div>
               </div>
 
