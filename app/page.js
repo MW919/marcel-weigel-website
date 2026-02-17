@@ -33,7 +33,7 @@ export default async function HomePage() {
               {/* Photo */}
               <div className="relative flex-shrink-0">
                 <div className="absolute -inset-5 rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[20px] pointer-events-none" />
-                <div className="relative w-[130px] md:w-[230px] rounded-xl md:rounded-2xl overflow-hidden border border-accent/15">
+                <div className="relative w-[130px] md:w-[230px] overflow-hidden">
                   <picture>
                     <source
                       srcSet="/images/hero-photo-mobile.webp"
@@ -239,7 +239,14 @@ export default async function HomePage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 9: CONTACT CTA
           ════════════════════════════════════════════════════════ */}
-      <section className="py-24 px-4 md:px-8 bg-brand-section text-center">
+      <section className="py-24 px-4 md:px-8 text-center relative overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg via-accent-dark/[0.12] to-brand-bg" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_60%)]" />
+        {/* Dot grid pattern — represents connections/network */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #9b6bb5 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+
+        <div className="relative z-[1]">
         <AnimatedSection>
           <GlowLabel>CONTACT MARCEL</GlowLabel>
           <h2 className="font-heading text-[clamp(2rem,5vw,3rem)] font-extrabold mb-5" style={{ color: '#f4f6fc' }}>
@@ -255,6 +262,7 @@ export default async function HomePage() {
             Contact
           </Link>
         </AnimatedSection>
+        </div>
       </section>
     </>
   );
