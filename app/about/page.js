@@ -22,7 +22,7 @@ export default function AboutPage() {
             {/* Photo */}
             <AnimatedSection>
               <div className="relative mx-auto md:mx-0 w-[200px] md:w-full">
-                <div className="relative rounded-2xl overflow-hidden border border-accent/15 bg-brand-bg">
+                <div className="relative overflow-hidden bg-brand-bg">
                   <picture>
                     <source srcSet="/images/about-photo-mobile.webp" media="(max-width: 768px)" type="image/webp" />
                     <source srcSet="/images/about-photo.webp" type="image/webp" />
@@ -35,7 +35,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" />
                 </div>
                 {/* Ambient glow behind photo */}
-                <div className="absolute -inset-4 rounded-2xl bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[20px] -z-10" />
+                <div className="absolute -inset-4 bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[20px] -z-10" />
               </div>
             </AnimatedSection>
 
