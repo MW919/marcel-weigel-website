@@ -48,8 +48,8 @@ export default async function HomePage() {
                       src="/images/hero-photo.png"
                       alt="Marcel Weigel"
                       className="w-full block"
-                      width={869}
-                      height={1520}
+                      width={881}
+                      height={1816}
                       loading="eager"
                     />
                   </picture>
