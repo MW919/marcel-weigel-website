@@ -36,16 +36,16 @@ export default async function HomePage() {
                 <div className="relative w-[130px] md:w-[230px] overflow-hidden">
                   <picture>
                     <source
-                      srcSet="/images/hero-photo-mobile.webp"
+                      srcSet="/images/hero-photo-mobile.webp?v=2"
                       media="(max-width: 768px)"
                       type="image/webp"
                     />
                     <source
-                      srcSet="/images/hero-photo.webp"
+                      srcSet="/images/hero-photo.webp?v=2"
                       type="image/webp"
                     />
                     <img
-                      src="/images/hero-photo.png"
+                      src="/images/hero-photo.png?v=2"
                       alt="Marcel Weigel"
                       className="w-full block"
                       width={881}
