@@ -32,7 +32,6 @@ export default function AboutPage() {
                       className="w-full h-auto object-contain"
                     />
                   </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent pointer-events-none" />
                 </div>
                 {/* Ambient glow behind photo */}
                 <div className="absolute -inset-4 bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[20px] -z-10" />
