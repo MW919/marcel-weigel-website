@@ -90,6 +90,19 @@ body { font-family: 'Outfit', 'Century Gothic', 'Avenir', sans-serif; background
   50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
 }
 
+@keyframes ambientFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -20px); }
+}
+@keyframes ambientFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-25px, 15px); }
+}
+@keyframes ambientFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(15px, -25px); }
+}
+
 /* Footer signature glow pulse — purple */
 @keyframes sigPulseFooter {
   0%, 100% { opacity: 0.4; filter: blur(12px) brightness(1.5) sepia(1) hue-rotate(250deg) saturate(3); }

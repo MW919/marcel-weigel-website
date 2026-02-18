@@ -3,7 +3,6 @@ import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import PostCard from '@/components/PostCard';
 import HexagonQuote from '@/components/HexagonQuote';
-import HeroHeadline from '@/components/HeroHeadline';
 import GlowLabel from '@/components/GlowLabel';
 import Testimonials from '@/components/Testimonials';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
@@ -19,16 +18,17 @@ export default async function HomePage() {
           SECTION 1: HERO — Headline → Photo+Name → Intro
           ════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden pt-24 md:pt-28 pb-12">
-        {/* Ambient glow */}
-        <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.12)_0%,transparent_70%)] blur-[60px] pointer-events-none" style={{ animation: 'heroGlow 6s ease-in-out infinite' }} />
+        {/* Ambient breathing gradient orbs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.06)_0%,transparent_70%)] blur-[40px] top-[10%] left-[15%]" style={{ animation: 'ambientFloat1 8s ease-in-out infinite' }} />
+          <div className="absolute w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-full bg-[radial-gradient(circle,rgba(155,107,181,0.04)_0%,transparent_70%)] blur-[30px] top-[40%] right-[10%]" style={{ animation: 'ambientFloat2 10s ease-in-out infinite' }} />
+          <div className="absolute w-[200px] h-[200px] md:w-[250px] md:h-[250px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.05)_0%,transparent_70%)] blur-[25px] bottom-[10%] left-[40%]" style={{ animation: 'ambientFloat3 12s ease-in-out infinite' }} />
+        </div>
 
         <div className="relative z-[1] max-w-[900px] mx-auto px-4 md:px-8">
 
-          {/* Headline with word cascade */}
-          <HeroHeadline />
-
           {/* Photo + Name — side by side */}
-          <AnimatedSection delay={0.25}>
+          <AnimatedSection delay={0.15}>
             <div className="flex items-center justify-center gap-5 md:gap-12 mb-8">
               {/* Photo */}
               <div className="relative flex-shrink-0">
@@ -74,13 +74,13 @@ export default async function HomePage() {
 
           {/* Intro text + CTAs */}
           <div className="max-w-[620px] mx-auto text-center">
-            <AnimatedSection delay={0.45}>
+            <AnimatedSection delay={0.3}>
               <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-7">
                 My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
               </p>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.6}>
+            <AnimatedSection delay={0.45}>
               <div className="flex gap-4 flex-wrap justify-center">
                 <Link
                   href="/read"
