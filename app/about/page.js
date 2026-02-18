@@ -33,6 +33,7 @@ export default function AboutPage() {
                     />
                   </picture>
                 </div>
+              </div>
             </AnimatedSection>
 
             {/* Bio text */}
