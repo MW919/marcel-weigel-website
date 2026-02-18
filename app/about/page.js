@@ -24,10 +24,10 @@ export default function AboutPage() {
               <div className="relative mx-auto md:mx-0 w-[200px] md:w-full">
                 <div className="relative overflow-hidden bg-brand-bg">
                   <picture>
-                    <source srcSet="/images/about-photo-mobile.webp?v=2" media="(max-width: 768px)" type="image/webp" />
-                    <source srcSet="/images/about-photo.webp?v=2" type="image/webp" />
+                    <source srcSet="/images/about-photo-mobile.webp?v=3" media="(max-width: 768px)" type="image/webp" />
+                    <source srcSet="/images/about-photo.webp?v=3" type="image/webp" />
                     <img
-                      src="/images/about-photo.png?v=2"
+                      src="/images/about-photo.png?v=3"
                       alt="Marcel Weigel"
                       className="w-full h-auto object-contain"
                     />
