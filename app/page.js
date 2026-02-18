@@ -52,9 +52,11 @@ export default async function HomePage() {
                       loading="eager"
                     />
                   </picture>
-                  {/* Bottom fade */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
+                  {/* Bottom fade — desktop only */}
+                  <div className="hidden md:block absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
                 </div>
+                {/* Glow bridge — mobile only */}
+                <div className="md:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[20px] bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[8px] pointer-events-none" />
               </div>
 
               {/* Name */}
