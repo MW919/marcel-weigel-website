@@ -36,20 +36,20 @@ export default async function HomePage() {
                 <div className="relative w-[130px] md:w-[230px] overflow-hidden">
                   <picture>
                     <source
-                      srcSet="/images/hero-photo-mobile.webp?v=2"
+                      srcSet="/images/hero-photo-mobile.webp?v=3"
                       media="(max-width: 768px)"
                       type="image/webp"
                     />
                     <source
-                      srcSet="/images/hero-photo.webp?v=2"
+                      srcSet="/images/hero-photo.webp?v=3"
                       type="image/webp"
                     />
                     <img
-                      src="/images/hero-photo.png?v=2"
+                      src="/images/hero-photo.png?v=3"
                       alt="Marcel Weigel"
                       className="w-full block"
-                      width={881}
-                      height={1816}
+                      width={900}
+                      height={1864}
                       loading="eager"
                     />
                   </picture>
