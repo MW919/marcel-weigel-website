@@ -22,12 +22,12 @@ export default function AboutPage() {
             {/* Photo */}
             <AnimatedSection>
               <div className="relative mx-auto md:mx-0 w-[200px] md:w-full">
-                <div className="relative overflow-hidden bg-brand-bg">
+                <div className="relative overflow-hidden">
                   <picture>
-                    <source srcSet="/images/about-photo-mobile.webp?v=3" media="(max-width: 768px)" type="image/webp" />
-                    <source srcSet="/images/about-photo.webp?v=3" type="image/webp" />
+                    <source srcSet="/images/about-photo-mobile.webp?v=4" media="(max-width: 768px)" type="image/webp" />
+                    <source srcSet="/images/about-photo.webp?v=4" type="image/webp" />
                     <img
-                      src="/images/about-photo.png?v=3"
+                      src="/images/about-photo.png?v=4"
                       alt="Marcel Weigel"
                       className="w-full h-auto object-contain"
                     />
