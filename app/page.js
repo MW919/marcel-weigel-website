@@ -32,7 +32,6 @@ export default async function HomePage() {
             <div className="flex items-center justify-center gap-5 md:gap-12 mb-8">
               {/* Photo */}
               <div className="relative flex-shrink-0">
-                <div className="absolute -inset-5 rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[20px] pointer-events-none" />
                 <div className="relative w-[130px] md:w-[230px] overflow-hidden">
                   <picture>
                     <source
@@ -53,6 +52,8 @@ export default async function HomePage() {
                       loading="eager"
                     />
                   </picture>
+                  {/* Bottom fade */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
                 </div>
               </div>
 
