@@ -21,7 +21,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-10 md:gap-14 items-start">
             {/* Photo */}
             <AnimatedSection>
-              <div className="relative mx-auto md:mx-0 w-[200px] md:w-full">
+              <div className="relative mx-auto md:mx-0 w-[150px] md:w-full">
                 <div className="relative overflow-hidden">
                   <picture>
                     <source srcSet="/images/about-photo-mobile.webp?v=4" media="(max-width: 768px)" type="image/webp" />
