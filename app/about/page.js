@@ -33,9 +33,6 @@ export default function AboutPage() {
                     />
                   </picture>
                 </div>
-                {/* Ambient glow behind photo */}
-                <div className="absolute -inset-4 bg-[radial-gradient(circle,rgba(117,70,140,0.15)_0%,transparent_70%)] blur-[20px] -z-10" />
-              </div>
             </AnimatedSection>
 
             {/* Bio text */}
