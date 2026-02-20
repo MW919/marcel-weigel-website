@@ -19,7 +19,7 @@ export default function ImpressumPage() {
         <div className="prose-brand font-body text-base space-y-6">
 
           <div>
-            <h2 className="text-brand-text font-heading text-lg font-bold mt-0 mb-2">Angaben gemäß § 5 DDG</h2>
+            <h2 className="text-brand-text font-heading text-lg font-bold mt-0 mb-2">Inhalte gemäß § 5 DDG</h2>
             <p style={{ whiteSpace: 'pre-line' }}>
               {imp.fullName}{'\n'}
               {imp.address}
