@@ -28,8 +28,9 @@ export default function ImpressumPage() {
 
           <div>
             <h2 className="text-brand-text font-heading text-lg font-bold mb-2">Kontakt</h2>
-            {imp.phone && <p>Telefon: {imp.phone}</p>}
-            <p>E-Mail: <a href={`mailto:${imp.email}`} className="text-accent-light hover:text-accent">{imp.email}</a></p>
+            <p style={{ whiteSpace: 'pre-line' }}>
+              Telefon: {imp.phone}{'\n'}E-Mail: <a href={`mailto:${imp.email}`} className="text-accent-light hover:text-accent">{imp.email}</a>
+            </p>
           </div>
 
           {imp.vatId && (
@@ -41,7 +42,7 @@ export default function ImpressumPage() {
 
           <div>
             <h2 className="text-brand-text font-heading text-lg font-bold mb-2">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-            <p>{imp.responsibleForContent}<br />{imp.address.split('\n')[0]}<br />{imp.address.split('\n').slice(1).join(', ')}</p>
+            <p style={{ whiteSpace: 'pre-line' }}>{imp.responsibleForContent}{'\n'}{imp.address}</p>
           </div>
 
           <div>
