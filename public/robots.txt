@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.marcel-weigel.com/sitemap.xml
+Sitemap: https://marcel-weigel.com/sitemap.xml
