@@ -10,14 +10,14 @@ export const metadata = {
   },
   description: 'I provide expert insights on the latest technology trends and enterprise architecture. Let\'s discuss how I can add value to your upcoming events, projects, or initiatives.',
   keywords: ['Marcel Weigel', 'Enterprise Architecture', 'Digital Strategy', 'AI Strategy', 'Architecture Thinking', 'Architecture Experience', 'Digital Transformation'],
-  metadataBase: new URL('https://www.marcel-weigel.com'),
+  metadataBase: new URL('https://marcel-weigel.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Marcel Weigel',
     description: 'I provide expert insights on the latest technology trends and enterprise architecture. Let\'s discuss how I can add value to your upcoming events, projects, or initiatives.',
-    url: 'https://www.marcel-weigel.com',
+    url: 'https://marcel-weigel.com',
     siteName: 'Marcel Weigel',
     type: 'website',
     locale: 'en_US',
@@ -59,7 +59,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Marcel Weigel',
-  url: 'https://www.marcel-weigel.com',
+  url: 'https://marcel-weigel.com',
   jobTitle: 'Enterprise Architect',
   description: 'Enterprise Architecture & Digital Strategy Leader. AI Strategist.',
   knowsAbout: [
