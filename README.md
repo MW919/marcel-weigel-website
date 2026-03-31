@@ -162,8 +162,3 @@ IONOS will give you DNS records to add. Typically:
 ---
 
 Built with Next.js • Tailwind CSS • Hosted on IONOS Deploy Now 🇩🇪
-
-
-
-
-
