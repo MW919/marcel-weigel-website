@@ -8,10 +8,8 @@ import Testimonials from '@/components/Testimonials';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
 import siteConfig from '@/lib/siteConfig';
 import { getLatestPosts } from '@/lib/ghost';
-
 export default async function HomePage() {
   const ghostPosts = await getLatestPosts(3);
-
   return (
     <>
       {/* ════════════════════════════════════════════════════════
@@ -24,9 +22,7 @@ export default async function HomePage() {
           <div className="absolute w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-full bg-[radial-gradient(circle,rgba(155,107,181,0.04)_0%,transparent_70%)] blur-[30px] top-[40%] right-[10%]" style={{ animation: 'ambientFloat2 10s ease-in-out infinite' }} />
           <div className="absolute w-[200px] h-[200px] md:w-[250px] md:h-[250px] rounded-full bg-[radial-gradient(circle,rgba(117,70,140,0.05)_0%,transparent_70%)] blur-[25px] bottom-[10%] left-[40%]" style={{ animation: 'ambientFloat3 12s ease-in-out infinite' }} />
         </div>
-
         <div className="relative z-[1] max-w-[900px] mx-auto px-4 md:px-8">
-
           {/* Photo + Name — side by side */}
           <AnimatedSection delay={0.15}>
             <div className="flex items-center justify-center gap-5 md:gap-12 mb-8">
@@ -58,7 +54,6 @@ export default async function HomePage() {
                 {/* Glow bridge — mobile only */}
                 <div className="md:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[20px] bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[8px] pointer-events-none" />
               </div>
-
               {/* Name */}
               <div className="text-left">
                 <span className="font-heading text-[10px] md:text-xs font-semibold tracking-[3px] md:tracking-[4px] uppercase text-accent-light block mb-1 md:mb-2">
@@ -71,7 +66,6 @@ export default async function HomePage() {
               </div>
             </div>
           </AnimatedSection>
-
           {/* Intro text + CTAs */}
           <div className="max-w-[620px] mx-auto text-center">
             <AnimatedSection delay={0.3}>
@@ -79,7 +73,6 @@ export default async function HomePage() {
                 My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
               </p>
             </AnimatedSection>
-
             <AnimatedSection delay={0.45}>
               <div className="flex gap-4 flex-wrap justify-center">
                 <Link
@@ -97,22 +90,18 @@ export default async function HomePage() {
               </div>
             </AnimatedSection>
           </div>
-
         </div>
       </section>
-
       {/* ════════════════════════════════════════════════════════
           SECTION 2: QUOTE BANNER with Hexagon Assembly
           ════════════════════════════════════════════════════════ */}
       <HexagonQuote />
-
       {/* ════════════════════════════════════════════════════════
           TRANSITION: Arrow
           ════════════════════════════════════════════════════════ */}
       <div className="py-8 text-center bg-gradient-to-b from-brand-section to-brand-bg">
         <ArrowDownIcon className="text-accent-light animate-bounce-arrow mx-auto" />
       </div>
-
       {/* ════════════════════════════════════════════════════════
           SECTION 3+4 MERGED: ARCHITECTURE EXPERIENCE BLOG
           ════════════════════════════════════════════════════════ */}
@@ -128,7 +117,6 @@ export default async function HomePage() {
             </p>
           </AnimatedSection>
         </div>
-
         {/* Ghost blog post cards — with mobile swipe arrows */}
         <div className="relative max-w-[1200px] mx-auto">
           {/* Swipe arrows — visible on mobile only */}
@@ -140,7 +128,6 @@ export default async function HomePage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light/60"><path d="M9 18l6-6-6-6"/></svg>
             </div>
           </div>
-
           <div className="flex gap-6 overflow-x-auto px-4 md:px-8 lg:px-12 pb-4 hide-scrollbar" style={{ scrollSnapType: 'x mandatory' }}>
           {ghostPosts.map((post, i) => (
             <a
@@ -162,24 +149,9 @@ export default async function HomePage() {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-card/80 to-transparent" />
-                      {post.membersOnly && (
-                        <span className="absolute top-3 right-3 flex items-center gap-1 text-[10px] tracking-[1.5px] uppercase text-brand-muted bg-brand-bg/80 backdrop-blur-sm px-2 py-1 rounded">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                          Members
-                        </span>
-                      )}
                     </div>
                   )}
                   <div className="p-6 flex flex-col gap-4 flex-grow">
-                    {/* Members badge if no image */}
-                    {!post.featureImage && post.membersOnly && (
-                      <div className="flex items-center gap-2 text-[11px] tracking-[1.5px] uppercase text-brand-muted">
-                        <span className="flex items-center gap-1">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent-light"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                          Members
-                        </span>
-                      </div>
-                    )}
                     <h3 className="font-heading text-lg font-bold leading-snug" style={{ color: '#f4f6fc' }}>
                       {post.title}
                     </h3>
@@ -197,14 +169,12 @@ export default async function HomePage() {
         </div>
         </div>
       </section>
-
       {/* ════════════════════════════════════════════════════════
           SECTION 8: STATS COUNTER
           ════════════════════════════════════════════════════════ */}
       <section className="py-20 px-4 md:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent-dark/[0.13] via-brand-bg to-accent/[0.07]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.08)_0%,transparent_70%)]" />
-
         <div className="relative z-[1] max-w-[1000px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
           {siteConfig.stats.map((stat, i) => {
             const IconComponent = getIconByName(stat.icon);
@@ -231,12 +201,10 @@ export default async function HomePage() {
           })}
         </div>
       </section>
-
       {/* ════════════════════════════════════════════════════════
           SECTION: TESTIMONIALS
           ════════════════════════════════════════════════════════ */}
       <Testimonials />
-
       {/* ════════════════════════════════════════════════════════
           SECTION 9: CONTACT CTA
           ════════════════════════════════════════════════════════ */}
@@ -246,7 +214,6 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_60%)]" />
         {/* Dot grid pattern — represents connections/network */}
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #9b6bb5 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-
         <div className="relative z-[1]">
         <AnimatedSection>
           <GlowLabel>CONTACT MARCEL</GlowLabel>
