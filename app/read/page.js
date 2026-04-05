@@ -67,29 +67,17 @@ export default async function ReadPage() {
             </p>
           </AnimatedSection>
 
-          {/* Ghost newsletter signup */}
+          {/* Ghost newsletter signup — link to portal */}
           <AnimatedSection delay={0.45}>
             <div className="max-w-[480px] mx-auto">
-              <form
-                action="https://architecture-experience.ghost.io/members/api/send-magic-link/"
-                method="POST"
-                className="flex gap-3 flex-col sm:flex-row"
+              <a
+                href="https://www.architecture-experience.com/#/portal/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
               >
-                <input type="hidden" name="emailType" value="subscribe" />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                  className="flex-grow px-5 py-3.5 rounded-lg bg-brand-card border border-accent/20 text-brand-text font-body text-sm placeholder:text-brand-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all"
-                />
-                <button
-                  type="submit"
-                  className="px-8 py-3.5 bg-gradient-to-br from-accent to-accent-dark text-white font-heading text-xs font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300 cursor-pointer border-none"
-                >
-                  Subscribe
-                </button>
-              </form>
+                Subscribe to Newsletter
+              </a>
               <p className="font-body text-[11px] text-brand-muted/50 mt-3">Free newsletter. Unsubscribe anytime.</p>
             </div>
           </AnimatedSection>
