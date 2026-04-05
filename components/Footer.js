@@ -17,27 +17,15 @@ export default function Footer() {
           <p className="font-body text-[14px] text-brand-muted max-w-[440px] mx-auto mb-6 leading-relaxed">
             Get insights on Enterprise Architecture, AI Strategy, and Digital Transformation delivered to your inbox.
           </p>
-          <form
-            action="https://architecture-experience.ghost.io/members/api/send-magic-link/"
-            method="POST"
-            className="flex gap-3 flex-col sm:flex-row max-w-[420px] mx-auto"
+          <a
+            href="https://www.architecture-experience.com/#/portal/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-[10px] font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
           >
-            <input type="hidden" name="emailType" value="subscribe" />
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-              className="flex-grow px-4 py-3 rounded-lg bg-brand-card border border-accent/20 text-brand-text font-body text-sm placeholder:text-brand-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-gradient-to-br from-accent to-accent-dark text-white font-heading text-[10px] font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300 cursor-pointer border-none"
-            >
-              Subscribe
-            </button>
-          </form>
-          <p className="font-body text-[10px] text-brand-muted/40 mt-2">Free newsletter · Unsubscribe anytime</p>
+            Subscribe to Newsletter
+          </a>
+          <p className="font-body text-[10px] text-brand-muted/40 mt-3">Free newsletter · Unsubscribe anytime</p>
         </div>
 
         {/* ─── Signature + tagline ─── */}
