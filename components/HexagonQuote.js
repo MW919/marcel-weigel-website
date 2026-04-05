@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import siteConfig from '@/lib/siteConfig';
+import GlowLabel from './GlowLabel';
 
 function hexPoints(cx, cy, size) {
   const pts = [];
@@ -175,12 +176,9 @@ export default function HexagonQuote() {
         </svg>
       </div>
 
-      {/* MY PHILOSOPHY label */}
+      {/* MY PHILOSOPHY label — styled like other section headers */}
       <div className="relative z-[2] mb-6">
-        <span className="font-heading text-[11px] font-semibold tracking-[4px] uppercase text-accent-light/70">
-          MY PHILOSOPHY
-        </span>
-        <div className="w-[40px] h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mt-3" />
+        <GlowLabel>MY PHILOSOPHY</GlowLabel>
       </div>
 
       {/* Quote text — no quotation marks */}
