@@ -175,12 +175,20 @@ export default function HexagonQuote() {
         </svg>
       </div>
 
-      {/* Quote text */}
-      <p className="relative z-[2] font-heading text-[clamp(1.3rem,3.5vw,2rem)] font-light leading-[1.85] italic max-w-[900px] mx-auto" style={{ color: '#d8d5e0' }}>
-        &ldquo;{quote.before}{' '}
+      {/* MY PHILOSOPHY label */}
+      <div className="relative z-[2] mb-6">
+        <span className="font-heading text-[11px] font-semibold tracking-[4px] uppercase text-accent-light/70">
+          MY PHILOSOPHY
+        </span>
+        <div className="w-[40px] h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mt-3" />
+      </div>
+
+      {/* Quote text — no quotation marks */}
+      <p className="relative z-[2] font-heading text-[clamp(1.3rem,3.5vw,2rem)] font-light leading-[1.85] max-w-[900px] mx-auto" style={{ color: '#d8d5e0' }}>
+        {quote.before && <>{quote.before}{' '}</>}
         {quote.highlights.map((h, i) => (
           <span key={h.word}>
-            <span className="relative inline-block font-bold not-italic pb-1" style={{ color: '#f4f6fc' }}>
+            <span className="relative inline-block font-bold pb-1" style={{ color: '#f4f6fc' }}>
               {h.word}
               {/* Gradient glow underline — animated */}
               <span
@@ -206,7 +214,6 @@ export default function HexagonQuote() {
             {h.after}{i < quote.highlights.length - 1 ? ' ' : ''}
           </span>
         ))}
-        &rdquo;
       </p>
     </section>
   );
