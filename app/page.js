@@ -57,7 +57,7 @@ export default async function HomePage() {
               {/* Name */}
               <div className="text-left">
                 <span className="font-heading text-[10px] md:text-xs font-semibold tracking-[3px] md:tracking-[4px] uppercase text-accent-light block mb-1 md:mb-2">
-                  HEY!
+                  {siteConfig.hero.greeting}
                 </span>
                 <h1 className="font-heading text-[clamp(1.7rem,4vw,3.2rem)] font-extrabold leading-[1.1] tracking-tight bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
                   <span className="md:hidden">I'M<br />MARCEL.</span>
@@ -74,7 +74,7 @@ export default async function HomePage() {
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.45}>
-              <div className="flex gap-4 flex-wrap justify-center">
+              <div className="flex gap-4 flex-wrap justify-center items-center">
                 <Link
                   href="/read"
                   className="inline-flex items-center gap-2 py-3.5 px-8 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
@@ -83,9 +83,9 @@ export default async function HomePage() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 py-3.5 px-8 bg-transparent text-brand-text no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-md border border-accent/40 hover:border-accent hover:bg-accent/10 transition-all duration-300"
+                  className="inline-flex items-center gap-2 no-underline font-heading text-xs font-medium tracking-[2px] uppercase text-brand-muted hover:text-accent-light transition-colors duration-300"
                 >
-                  Get in Touch
+                  Get in Touch →
                 </Link>
               </div>
             </AnimatedSection>
