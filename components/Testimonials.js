@@ -7,33 +7,64 @@ const testimonials = [
     quote: "I worked with Marcel on a number of projects from data related activities to finance ERP selection. Marcel is a great professional, spoke very well when presenting to the business and gave clear direction. Marcel was always a good go to person for some 'sanity' checks and gave well balanced advise. I always enjoyed working with Marcel and I hope to again one day in the future.",
     name: "Alex Bruce",
     title: "MDM, Data Governance and Data Quality",
-    initials: "AB"
+    initials: "AB",
+    photo: "/images/testimonials/alex-bruce.jpg"
   },
   {
     quote: "I had the pleasure of collaborating closely with Marcel for two years on Global Enterprise Architecture governance, and his expertise and dedication are truly exceptional. Marcel possesses a deep understanding of architectural frameworks and governance processes, which significantly enhanced our initiatives. In addition to his technical skills, he has great business insight and was a valuable part of the local IT leadership team, bringing clarity to the IT roadmap.",
     name: "Pernille Sommerlund Wolf",
     title: "Domain Architect, Finance and P&C",
-    initials: "PW"
+    initials: "PW",
+    photo: "/images/testimonials/pernille-wolf.jpg"
   },
   {
     quote: "I had the pleasure of working with Marcel Weigel on a project where our roles intersected as an Enterprise Architect and a Data Governance Manager. Marcel consistently demonstrated exceptional expertise, strategic thinking, and a collaborative spirit. His ability to design scalable solutions and communicate complex concepts clearly made our collaboration highly effective. I highly recommend Marcel Weigel for his technical acumen and teamwork skills.",
     name: "Olga Cristina Carvalho",
     title: "Data Governance | Master Data Management",
-    initials: "OC"
+    initials: "OC",
+    photo: "/images/testimonials/olga-carvalho.jpg"
   },
   {
     quote: "I had a wonderful opportunity to work with Marcel while working at Schenker for IT division of DB Schenker Land Transport. He is very passionate about what he does and has a crisp and clear way of putting across what he believes and thinks. His expertise and innovative approach has been instrumental in driving our projects further. He is a gem of a person, a natural leader and a collaborative team player.",
     name: "Mohit Agarwal",
     title: "Manager, IT Product Owner at DSV",
-    initials: "MA"
+    initials: "MA",
+    photo: "/images/testimonials/mohit-agarwal.jpg"
   },
   {
     quote: "I've had very interesting dialogues with Marcel regarding Enterprise Architecture, particularly about capabilities and a pragmatic approach to implementing Enterprise Architecture. I find Marcel knowledgeable and open-minded, with a clear focus. I would recommend Marcel for leading architectural roles, especially concerning EA.",
     name: "Stefan Reifalk",
     title: "Strategy | Innovation | Enterprise Architecture",
-    initials: "SR"
+    initials: "SR",
+    photo: "/images/testimonials/stefan-reifalk.jpg"
   }
 ];
+
+// Avatar component — shows photo if available, falls back to initials
+function Avatar({ photo, initials, name }) {
+  const [imgError, setImgError] = useState(false);
+
+  if (photo && !imgError) {
+    return (
+      <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-accent/10">
+        <img
+          src={photo}
+          alt={name}
+          className="w-full h-full object-cover"
+          onError={() => setImgError(true)}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/30 to-accent-dark/40 flex items-center justify-center flex-shrink-0 ring-2 ring-accent/10">
+      <span className="font-heading text-[11px] font-bold tracking-wider text-accent-light">
+        {initials}
+      </span>
+    </div>
+  );
+}
 
 // Floating quote marks background
 function FloatingQuotes() {
@@ -249,11 +280,7 @@ export default function Testimonials() {
 
                   {/* Author */}
                   <div className="flex items-center gap-3 pt-3 border-t border-accent/10">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/30 to-accent-dark/40 flex items-center justify-center flex-shrink-0 ring-2 ring-accent/10">
-                      <span className="font-heading text-[11px] font-bold tracking-wider text-accent-light">
-                        {t.initials}
-                      </span>
-                    </div>
+                    <Avatar photo={t.photo} initials={t.initials} name={t.name} />
                     <div className="min-w-0">
                       <div className="font-heading text-[13px] font-semibold text-brand-text truncate">{t.name}</div>
                       <div className="font-body text-[11px] text-brand-muted truncate">{t.title}</div>
