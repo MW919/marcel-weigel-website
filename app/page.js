@@ -110,10 +110,11 @@ export default async function HomePage() {
           <AnimatedSection>
             <GlowLabel>ARCHITECTURE EXPERIENCE</GlowLabel>
             <h2 className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-extrabold mb-3" style={{ color: '#f4f6fc' }}>
-              FROM THE BLOG
+              I WRITE ON ARCHITECTURE EXPERIENCE
             </h2>
             <p className="font-body text-[clamp(1.1rem,2.5vw,1.4rem)] leading-relaxed text-brand-muted max-w-[550px] mx-auto">
-              Thoughts on architecture, strategy, and technology.
+              My blog on architecture, strategy, and technology — hosted on{' '}
+              <a href="https://www.architecture-experience.com" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent-light/80 transition-colors">architecture-experience.com</a>
             </p>
           </AnimatedSection>
         </div>
