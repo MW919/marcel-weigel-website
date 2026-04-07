@@ -68,12 +68,18 @@ export default async function HomePage() {
           </AnimatedSection>
           {/* Intro text + CTAs */}
           <div className="max-w-[620px] mx-auto text-center">
-            <AnimatedSection delay={0.3}>
+            <AnimatedSection delay={0.25}>
+              <p className="font-heading text-[clamp(1.05rem,2.2vw,1.3rem)] font-light leading-[1.6] text-brand-muted mb-6">
+                Information is everywhere.{' '}
+                <span className="font-extrabold bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">Clarity</span> is rare.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.4}>
               <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-7">
                 My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
               </p>
             </AnimatedSection>
-            <AnimatedSection delay={0.45}>
+            <AnimatedSection delay={0.55}>
               <div className="flex gap-4 flex-wrap justify-center items-center">
                 <Link
                   href="/read"
