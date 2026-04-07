@@ -4,6 +4,13 @@ import { useRef, useState, useEffect } from 'react';
 
 const testimonials = [
   {
+    quote: "Marcel is one of those rare professionals who combines deep technical commitment with a genuinely collaborative spirit — highly skilled, utterly dedicated, and refreshingly easy to work with. He has a sharp understanding of the delicate balance between delivering customer-facing solutions and meeting enterprise-scale expectations. What truly sets him apart is how he brings all of this with genuine kindness toward everyone around him — without ever compromising his assertiveness.",
+    name: "Hugo Bandeira Tavares",
+    title: "Enterprise & Solutions Architecture | Digital Products",
+    initials: "HT",
+    photo: "/images/testimonials/hugo-tavares.jpg"
+  },
+  {
     quote: "I worked with Marcel on a number of projects from data related activities to finance ERP selection. Marcel is a great professional, spoke very well when presenting to the business and gave clear direction. Marcel was always a good go to person for some 'sanity' checks and gave well balanced advise. I always enjoyed working with Marcel and I hope to again one day in the future.",
     name: "Alex Bruce",
     title: "MDM, Data Governance and Data Quality",
