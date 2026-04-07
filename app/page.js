@@ -69,9 +69,9 @@ export default async function HomePage() {
           {/* Intro text + CTAs */}
           <div className="max-w-[620px] mx-auto text-center">
             <AnimatedSection delay={0.25}>
-              <p className="font-heading text-[clamp(1.05rem,2.2vw,1.3rem)] font-light leading-[1.6] text-brand-muted mb-6">
+              <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-6 italic">
                 Information is everywhere.{' '}
-                <span className="font-extrabold bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">Clarity</span> is rare.
+                <span className="font-extrabold not-italic bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">Clarity</span> <span className="not-italic">is rare.</span>
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.4}>
