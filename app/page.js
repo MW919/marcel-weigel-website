@@ -27,7 +27,10 @@ export default async function HomePage() {
           <AnimatedSection delay={0.1}>
             <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted text-center mb-6 italic">
               I turn complexity into{' '}
-              <span className="font-extrabold not-italic bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">clarity.</span>
+              <span className="font-extrabold not-italic bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent relative inline-block clarity-entrance">
+                clarity.
+                <span className="absolute inset-0 pointer-events-none select-none clarity-glow" aria-hidden="true">clarity.</span>
+              </span>
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
