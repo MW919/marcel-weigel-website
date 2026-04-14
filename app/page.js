@@ -24,7 +24,13 @@ export default async function HomePage() {
         </div>
         <div className="relative z-[1] max-w-[900px] mx-auto px-4 md:px-8">
           {/* Photo + Name — side by side */}
-          <AnimatedSection delay={0.15}>
+          <AnimatedSection delay={0.1}>
+            <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted text-center mb-6 italic">
+              I turn complexity into{' '}
+              <span className="font-extrabold not-italic bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">clarity.</span>
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
             <div className="flex items-center justify-center gap-5 md:gap-12 mb-8">
               {/* Photo */}
               <div className="relative flex-shrink-0">
@@ -68,18 +74,12 @@ export default async function HomePage() {
           </AnimatedSection>
           {/* Intro text + CTAs */}
           <div className="max-w-[620px] mx-auto text-center">
-            <AnimatedSection delay={0.25}>
-              <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-6 italic">
-                Information is everywhere.{' '}
-                <span className="font-extrabold not-italic bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">Clarity</span> <span className="not-italic">is rare.</span>
-              </p>
-            </AnimatedSection>
-            <AnimatedSection delay={0.4}>
+            <AnimatedSection delay={0.35}>
               <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-7">
                 My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
               </p>
             </AnimatedSection>
-            <AnimatedSection delay={0.55}>
+            <AnimatedSection delay={0.5}>
               <div className="flex gap-4 flex-wrap justify-center items-center">
                 <Link
                   href="/read"
