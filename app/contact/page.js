@@ -86,8 +86,8 @@ export default function ContactPage() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 'Enterprise Architecture',
-                'Digital Strategy',
-                'AI Strategy & Roadmaps',
+                'Business Domain & Solution Architecture',
+                'Digital & AI Strategy',
                 'Speaking Engagements',
                 'Architecture Governance',
                 'Advisory & Consulting',
