@@ -1,0 +1,28 @@
+# Marcel Weigel — Personal Website
+
+> Marcel Weigel is an Enterprise Architect specializing in Enterprise Architecture, Digital & AI Strategy, and Digital Transformation. This is his personal brand website.
+
+## About
+
+Marcel Weigel is an Enterprise Architect at ISS. He bridges the gap between business strategy and technology execution through architecture thinking — a structured yet adaptive approach to aligning digital capabilities with organizational goals. His expertise spans Enterprise Architecture, Business Domain & Solution Architecture, Digital & AI Strategy, Architecture Governance, and Advisory & Consulting.
+
+## Website Structure
+
+- [Homepage](https://marcel-weigel.com/): Personal brand landing page with introduction, philosophy, blog highlights, testimonials, and contact
+- [Read](https://marcel-weigel.com/read/): Latest articles from the Architecture Experience blog
+- [About](https://marcel-weigel.com/about/): Professional background, expertise, and approach
+- [Contact](https://marcel-weigel.com/contact/): Email and LinkedIn contact details, areas of expertise
+
+## Blog
+
+Marcel writes on his blog "Architecture Experience" at https://www.architecture-experience.com. Topics include Enterprise Architecture, AI Strategy, Digital Transformation, and Architecture Governance.
+
+## Contact
+
+- Email: website@marcelweigel.com
+- LinkedIn: https://www.linkedin.com/in/marcel-weigel/
+- Website: https://marcel-weigel.com
+
+## Philosophy
+
+"I turn complexity into clarity." — Marcel helps organizations navigate digital transformation by providing architectural clarity where complexity exists.
