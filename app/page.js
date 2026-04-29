@@ -76,9 +76,9 @@ export default async function HomePage() {
             </div>
           </AnimatedSection>
           {/* Intro text + CTAs */}
-          <div className="max-w-[620px] mx-auto text-center">
+          <div className="max-w-[620px] mx-auto">
             <AnimatedSection delay={0.35}>
-              <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-7">
+              <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted mb-7 text-left px-2 md:px-0 md:text-center">
                 My passion is aligning business needs with technology through architecture. I specialize in Enterprise Architecture and Digital & AI Strategy, helping organizations bridge the gap between complexity and clarity to drive meaningful outcomes.
               </p>
             </AnimatedSection>
