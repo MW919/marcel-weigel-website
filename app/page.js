@@ -25,7 +25,7 @@ export default async function HomePage() {
         <div className="relative z-[1] max-w-[900px] mx-auto px-4 md:px-8">
           {/* Photo + Name — side by side */}
           <AnimatedSection delay={0.1}>
-            <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.85] text-brand-muted text-center mb-6 italic">
+            <p className="font-body text-[clamp(1.1rem,2.5vw,1.35rem)] leading-[1.6] text-brand-muted text-center mt-2 mb-10 italic">
               I turn complexity into{' '}
               <span className="font-extrabold not-italic bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent relative inline-block clarity-entrance">
                 clarity.
