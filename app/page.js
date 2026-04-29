@@ -36,23 +36,17 @@ export default async function HomePage() {
           <AnimatedSection delay={0.2}>
             {/* Mobile: stacked centered layout */}
             <div className="md:hidden flex flex-col items-center mb-8">
-              {/* Photo — larger, centered */}
+              {/* Photo — larger, centered, lightweight mobile image only */}
               <div className="relative mb-4">
                 <div className="relative w-[180px] overflow-hidden rounded-lg">
-                  <picture>
-                    <source
-                      srcSet="/images/hero-photo-mobile.webp?v=3"
-                      type="image/webp"
-                    />
-                    <img
-                      src="/images/hero-photo.png?v=3"
-                      alt="Marcel Weigel"
-                      className="w-full block"
-                      width={900}
-                      height={1864}
-                      loading="eager"
-                    />
-                  </picture>
+                  <img
+                    src="/images/hero-photo-mobile.webp?v=3"
+                    alt="Marcel Weigel"
+                    className="w-full block"
+                    width={400}
+                    height={828}
+                    loading="eager"
+                  />
                   {/* Bottom + side fades */}
                   <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 50%, var(--bg) 100%), linear-gradient(to right, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%)' }} />
                 </div>
@@ -86,7 +80,7 @@ export default async function HomePage() {
                       className="w-full block"
                       width={900}
                       height={1864}
-                      loading="eager"
+                      loading="lazy"
                     />
                   </picture>
                   {/* Bottom fade */}
