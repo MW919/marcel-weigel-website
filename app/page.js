@@ -34,16 +34,48 @@ export default async function HomePage() {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <div className="flex items-center justify-center gap-5 md:gap-12 mb-8">
-              {/* Photo */}
-              <div className="relative flex-shrink-0">
-                <div className="relative w-[130px] md:w-[230px] overflow-hidden">
+            {/* Mobile: stacked centered layout */}
+            <div className="md:hidden flex flex-col items-center mb-8">
+              {/* Photo — larger, centered */}
+              <div className="relative mb-4">
+                <div className="relative w-[180px] overflow-hidden rounded-lg">
                   <picture>
                     <source
                       srcSet="/images/hero-photo-mobile.webp?v=3"
-                      media="(max-width: 768px)"
                       type="image/webp"
                     />
+                    <img
+                      src="/images/hero-photo.png?v=3"
+                      alt="Marcel Weigel"
+                      className="w-full block"
+                      width={900}
+                      height={1864}
+                      loading="eager"
+                    />
+                  </picture>
+                  {/* Bottom + side fades */}
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 50%, var(--bg) 100%), linear-gradient(to right, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%)' }} />
+                </div>
+                {/* Glow bridge */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[20px] bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[8px] pointer-events-none" />
+              </div>
+              {/* Name — centered */}
+              <div className="text-center">
+                <span className="font-heading text-[10px] font-semibold tracking-[3px] uppercase text-accent-light block mb-1">
+                  {siteConfig.hero.greeting}
+                </span>
+                <h1 className="font-heading text-[1.9rem] font-extrabold leading-[1.1] tracking-tight bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
+                  I'M MARCEL.
+                </h1>
+              </div>
+            </div>
+
+            {/* Desktop: side-by-side layout (unchanged) */}
+            <div className="hidden md:flex items-center justify-center gap-12 mb-8">
+              {/* Photo */}
+              <div className="relative flex-shrink-0">
+                <div className="relative w-[230px] overflow-hidden">
+                  <picture>
                     <source
                       srcSet="/images/hero-photo.webp?v=3"
                       type="image/webp"
@@ -57,20 +89,17 @@ export default async function HomePage() {
                       loading="eager"
                     />
                   </picture>
-                  {/* Bottom fade — desktop only */}
-                  <div className="hidden md:block absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
+                  {/* Bottom fade */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
                 </div>
-                {/* Glow bridge — mobile only */}
-                <div className="md:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[20px] bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[8px] pointer-events-none" />
               </div>
               {/* Name */}
               <div className="text-left">
-                <span className="font-heading text-[10px] md:text-xs font-semibold tracking-[3px] md:tracking-[4px] uppercase text-accent-light block mb-1 md:mb-2">
+                <span className="font-heading text-xs font-semibold tracking-[4px] uppercase text-accent-light block mb-2">
                   {siteConfig.hero.greeting}
                 </span>
                 <h1 className="font-heading text-[clamp(1.7rem,4vw,3.2rem)] font-extrabold leading-[1.1] tracking-tight bg-gradient-to-br from-brand-text to-accent-light bg-clip-text text-transparent">
-                  <span className="md:hidden">I'M<br />MARCEL.</span>
-                  <span className="hidden md:inline">I'M MARCEL.</span>
+                  I'M MARCEL.
                 </h1>
               </div>
             </div>
