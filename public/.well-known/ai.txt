@@ -1,1 +1,16 @@
+# AI Crawler Permissions for marcel-weigel.com
+# This file defines permissions for AI systems accessing this site.
 
+User-agent: *
+Allow: /
+Allow: /read/
+Allow: /about/
+Allow: /contact/
+Allow: /llms.txt
+
+Sitemap: https://marcel-weigel.com/sitemap.xml
+
+# Contact
+# Name: Marcel Weigel
+# Email: website@marcelweigel.com
+# Website: https://marcel-weigel.com
