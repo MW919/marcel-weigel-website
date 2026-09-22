@@ -51,6 +51,12 @@ const milestones = [
     description: 'Launched the Architecture Experience blog and newsletter — a platform to share insights, fresh perspectives, and practical thinking on Enterprise Architecture, Digital Strategy, and AI with a growing community of practitioners and leaders.',
     icon: '✍️'
   },
+  {
+    year: '2026',
+    title: 'MasterClass Executive',
+    description: 'Enrolled in MasterClass Executive — an AI-native business education program developed with the University of Chicago Booth School of Business and OpenAI. A selective, cohort-based experience combining AI-guided learning, hands-on AI Labs, and expert-led instruction to sharpen strategic leadership at the intersection of business and technology.',
+    icon: '🎓'
+  },
 ];
 
 export default function Timeline() {
