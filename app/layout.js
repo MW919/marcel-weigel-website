@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script async src="https://plausible.io/js/pa-pcvSpcMy-L8YDAPdnch5m.js"></script>
+        <script defer src="https://plausible.io/js/pa-pcvSpcMy-L8YDAPdnch5m.js"></script>
         <script dangerouslySetInnerHTML={{ __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()` }} />
         <link rel="alternate" type="application/rss+xml" title="Architecture Experience — RSS Feed" href="https://www.architecture-experience.com/rss/" />
       </head>
