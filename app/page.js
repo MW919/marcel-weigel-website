@@ -33,27 +33,29 @@ export default async function HomePage() {
               </span>
             </p>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            {/* Mobile: stacked centered layout */}
-            <div className="md:hidden flex flex-col items-center mb-8">
-              {/* Photo — larger, centered, lightweight mobile image only */}
-              <div className="relative mb-4">
-                <div className="relative w-[180px] overflow-hidden rounded-lg">
-                  <img
-                    src="/images/hero-photo-mobile.webp?v=3"
-                    alt="Marcel Weigel"
-                    className="w-full block"
-                    width={400}
-                    height={828}
-                    loading="eager"
-                  />
-                  {/* Bottom + side fades */}
-                  <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 50%, var(--bg) 100%), linear-gradient(to right, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%)' }} />
-                </div>
-                {/* Glow bridge */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[20px] bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[8px] pointer-events-none" />
+
+          {/* Mobile: stacked centered layout — photo NOT wrapped in AnimatedSection for LCP */}
+          <div className="md:hidden flex flex-col items-center mb-8">
+            {/* Photo — visible immediately for LCP */}
+            <div className="relative mb-4">
+              <div className="relative w-[180px] overflow-hidden rounded-lg">
+                <img
+                  src="/images/hero-photo-mobile.webp?v=3"
+                  alt="Marcel Weigel"
+                  className="w-full block"
+                  width={400}
+                  height={828}
+                  loading="eager"
+                  fetchPriority="high"
+                />
+                {/* Bottom + side fades */}
+                <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 50%, var(--bg) 100%), linear-gradient(to right, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%)' }} />
               </div>
-              {/* Name — centered */}
+              {/* Glow bridge */}
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[120%] h-[20px] bg-[radial-gradient(ellipse_at_center,rgba(117,70,140,0.1)_0%,transparent_70%)] blur-[8px] pointer-events-none" />
+            </div>
+            {/* Name — still animated */}
+            <AnimatedSection delay={0.2}>
               <div className="text-center">
                 <span className="font-heading text-[10px] font-semibold tracking-[3px] uppercase text-accent-light block mb-1">
                   {siteConfig.hero.greeting}
@@ -62,32 +64,35 @@ export default async function HomePage() {
                   I'M MARCEL.
                 </h1>
               </div>
-            </div>
+            </AnimatedSection>
+          </div>
 
-            {/* Desktop: side-by-side layout (unchanged) */}
-            <div className="hidden md:flex items-center justify-center gap-12 mb-8">
-              {/* Photo */}
-              <div className="relative flex-shrink-0">
-                <div className="relative w-[230px] overflow-hidden">
-                  <picture>
-                    <source
-                      srcSet="/images/hero-photo.webp?v=3"
-                      type="image/webp"
-                    />
-                    <img
-                      src="/images/hero-photo.png?v=3"
-                      alt="Marcel Weigel"
-                      className="w-full block"
-                      width={900}
-                      height={1864}
-                      loading="lazy"
-                    />
-                  </picture>
-                  {/* Bottom fade */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
-                </div>
+          {/* Desktop: side-by-side layout — photo NOT wrapped in AnimatedSection for LCP */}
+          <div className="hidden md:flex items-center justify-center gap-12 mb-8">
+            {/* Photo — visible immediately */}
+            <div className="relative flex-shrink-0">
+              <div className="relative w-[230px] overflow-hidden">
+                <picture>
+                  <source
+                    srcSet="/images/hero-photo.webp?v=3"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/images/hero-photo.png?v=3"
+                    alt="Marcel Weigel"
+                    className="w-full block"
+                    width={900}
+                    height={1864}
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                </picture>
+                {/* Bottom fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }} />
               </div>
-              {/* Name */}
+            </div>
+            {/* Name — still animated */}
+            <AnimatedSection delay={0.2}>
               <div className="text-left">
                 <span className="font-heading text-xs font-semibold tracking-[4px] uppercase text-accent-light block mb-2">
                   {siteConfig.hero.greeting}
@@ -96,8 +101,8 @@ export default async function HomePage() {
                   I'M MARCEL.
                 </h1>
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
           {/* Intro text + CTAs */}
           <div className="max-w-[620px] mx-auto">
             <AnimatedSection delay={0.35}>
