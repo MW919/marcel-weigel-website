@@ -2,6 +2,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MeshBackground from '@/components/MeshBackground';
+import CursorGlow from '@/components/CursorGlow';
 
 export const metadata = {
   title: {
@@ -136,6 +137,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify([personSchema, webSiteSchema, organizationSchema]) }}
         />
         <MeshBackground />
+        <CursorGlow />
         <div className="relative z-[1]">
           <Header />
           <main>{children}</main>
