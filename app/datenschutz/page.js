@@ -142,25 +142,25 @@ export default function DatenschutzPage() {
           <div>
             <h2 className="text-brand-text font-heading text-lg font-bold mb-2">5. Externe Inhalte und Dienste</h2>
 
-            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Blog-Inhalte (Ghost CMS)</h3>
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Blog-Inhalte (Substack)</h3>
             <p>
-              Auf dieser Website werden Blogartikel und deren Vorschaubilder von der Plattform Ghost (Ghost Foundation, ghost.org) eingebunden. Dabei werden Artikel-Vorschaubilder direkt von Ghost-Servern geladen, wobei Ihr Browser eine Verbindung zu Ghost-Servern herstellt und dabei Ihre IP-Adresse übermittelt wird.
+              Auf dieser Website werden Titel, Kurzbeschreibungen und Vorschaubilder von Artikeln aus unserem Newsletter „Architecture Experience" angezeigt, der auf der Plattform Substack (Substack Inc., San Francisco, USA) veröffentlicht wird. Die Vorschaubilder werden direkt von Servern geladen, die Substack nutzt (u. a. Amazon Web Services). Dabei stellt Ihr Browser eine Verbindung zu diesen Servern her und übermittelt Ihre IP-Adresse. Eine Übermittlung in die USA ist dabei möglich.
             </p>
             <p>
               Die Einbindung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse daran, aktuelle Blog-Inhalte auf unserer Website darzustellen.
             </p>
 
-            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Newsletter-Anmeldung (Ghost Members)</h3>
+            <h3 className="text-brand-text font-heading text-base font-semibold mt-4 mb-1">Newsletter-Anmeldung (Substack)</h3>
             <p>
-              Auf der Seite „Read" besteht die Möglichkeit, sich für unseren Newsletter „Architecture Experience" anzumelden. Wenn Sie sich anmelden, wird Ihre E-Mail-Adresse an Ghost (Ghost Foundation) übermittelt und dort gespeichert. Ghost verarbeitet Ihre Daten zum Zweck des Newsletter-Versands.
+              Über die Schaltflächen „Subscribe to Newsletter" gelangen Sie zur Anmeldeseite unseres Newsletters „Architecture Experience" auf Substack. Die Anmeldung findet ausschließlich auf der Website von Substack statt. Wenn Sie sich dort anmelden, wird Ihre E-Mail-Adresse von Substack (Substack Inc., San Francisco, USA) gespeichert und zum Zweck des Newsletter-Versands verarbeitet. Dabei gelten die Datenschutzbestimmungen von Substack.
             </p>
             <p>
               Die Anmeldung zum Newsletter erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit widerrufen, z.B. über den Abmeldelink in jeder Newsletter-E-Mail. Die Rechtmäßigkeit der bereits erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt.
             </p>
             <p>
-              Weitere Informationen zum Datenschutz bei Ghost finden Sie unter:<br />
-              <a href="https://ghost.org/privacy/" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent">
-                https://ghost.org/privacy/
+              Weitere Informationen zum Datenschutz bei Substack finden Sie unter:<br />
+              <a href="https://substack.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent">
+                https://substack.com/privacy
               </a>
             </p>
 
