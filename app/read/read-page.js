@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import GlowLabel from '@/components/GlowLabel';
-import { getLatestPosts } from '@/lib/ghost';
+import { getLatestPosts } from '@/lib/substack';
+import siteConfig from '@/lib/siteConfig';
 
 export const metadata = {
   title: 'Read',
@@ -67,11 +68,11 @@ export default async function ReadPage() {
             </p>
           </AnimatedSection>
 
-          {/* Ghost newsletter signup — link to portal */}
+          {/* Newsletter signup — link to Substack */}
           <AnimatedSection delay={0.45}>
             <div className="max-w-[480px] mx-auto">
               <a
-                href="https://www.architecture-experience.com/#/portal/signup"
+                href={siteConfig.newsletter.subscribeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-xs font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
