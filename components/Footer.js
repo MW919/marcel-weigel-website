@@ -18,7 +18,7 @@ export default function Footer() {
             Get insights on Enterprise Architecture, AI Strategy, and Digital Transformation delivered to your inbox.
           </p>
           <a
-            href="https://www.architecture-experience.com/#/portal/signup"
+            href={siteConfig.newsletter.subscribeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-br from-accent to-accent-dark text-white no-underline font-heading text-[10px] font-semibold tracking-[2px] uppercase rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(117,70,140,0.4)] transition-all duration-300"
