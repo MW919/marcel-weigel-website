@@ -7,9 +7,9 @@ import GlowLabel from '@/components/GlowLabel';
 import Testimonials from '@/components/Testimonials';
 import { ArrowDownIcon, getIconByName } from '@/components/Icons';
 import siteConfig from '@/lib/siteConfig';
-import { getLatestPosts } from '@/lib/ghost';
+import { getLatestPosts } from '@/lib/substack';
 export default async function HomePage() {
-  const ghostPosts = await getLatestPosts(3);
+  const latestPosts = await getLatestPosts(3);
   return (
     <>
       {/* ════════════════════════════════════════════════════════
@@ -155,7 +155,7 @@ export default async function HomePage() {
             </p>
           </AnimatedSection>
         </div>
-        {/* Ghost blog post cards — with mobile swipe arrows */}
+        {/* Latest newsletter posts (Substack RSS) — with mobile swipe arrows */}
         <div className="relative max-w-[1200px] mx-auto">
           {/* Swipe arrows — visible on mobile only */}
           <div className="flex items-center justify-between absolute inset-0 pointer-events-none z-10 md:hidden px-1">
@@ -167,7 +167,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="flex gap-6 overflow-x-auto px-4 md:px-8 lg:px-12 pb-4 hide-scrollbar" style={{ scrollSnapType: 'x mandatory' }}>
-          {ghostPosts.map((post, i) => (
+          {latestPosts.map((post, i) => (
             <a
               key={i}
               href={post.url}

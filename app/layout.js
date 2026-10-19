@@ -15,7 +15,7 @@ export const metadata = {
   alternates: {
     canonical: '/',
     types: {
-      'application/rss+xml': 'https://www.architecture-experience.com/rss/',
+      'application/rss+xml': 'https://architectureexperience.substack.com/feed',
     },
   },
   openGraph: {
@@ -85,6 +85,7 @@ const personSchema = {
   sameAs: [
     'https://www.linkedin.com/in/marcel-weigel/',
     'https://www.architecture-experience.com',
+    'https://architectureexperience.substack.com',
   ],
 };
 
@@ -120,6 +121,7 @@ const organizationSchema = {
   sameAs: [
     'https://www.linkedin.com/in/marcel-weigel/',
     'https://www.architecture-experience.com',
+    'https://architectureexperience.substack.com',
   ],
 };
 
@@ -129,7 +131,7 @@ export default function RootLayout({ children }) {
       <head>
         <script defer src="https://plausible.io/js/pa-pcvSpcMy-L8YDAPdnch5m.js"></script>
         <script dangerouslySetInnerHTML={{ __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()` }} />
-        <link rel="alternate" type="application/rss+xml" title="Architecture Experience — RSS Feed" href="https://www.architecture-experience.com/rss/" />
+        <link rel="alternate" type="application/rss+xml" title="Architecture Experience — RSS Feed" href="https://architectureexperience.substack.com/feed" />
       </head>
       <body>
         <script
