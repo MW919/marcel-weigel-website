@@ -15,7 +15,7 @@ Marcel Weigel is an Enterprise Architect at ISS. He bridges the gap between busi
 
 ## Blog
 
-Marcel writes on his blog "Architecture Experience" at https://www.architecture-experience.com. Topics include Enterprise Architecture, AI Strategy, Digital Transformation, and Architecture Governance.
+Marcel writes on his blog and newsletter "Architecture Experience" at https://www.architecture-experience.com (published on Substack: https://architectureexperience.substack.com). Topics include Enterprise Architecture, AI Strategy, Digital Transformation, and Architecture Governance.
 
 ## Contact
 
